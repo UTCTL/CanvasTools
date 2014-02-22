@@ -1,4 +1,4 @@
-// This code is was created by the Center of Innovative Design and Instruction at Utah State University. 
+// This code is was created by the Center of Innovative Design and Instruction at Utah State University.
 // It is released under the AGPLv3 license. For more information about this license, go to http://www.gnu.org/licenses/agpl.html
 
 ///////////////////////////////////////
@@ -7,14 +7,14 @@
 // include is found in canvasGlobal.js
 	// Themes without a description div
 		var themeArray = [
-			"generic", 
-			"bookmark", 
+			"generic",
+			"bookmark",
 			"notExist",
-			"apple", 
-			"box-left-aggie-blue", "box-left-copper", "box-left-silver", 
-			"square-right-aggie-blue", "square-right-copper", "square-right-silver", 
-			"rounded-inset-aggie-blue", "rounded-inset-copper", "rounded-inset-silver",
-			"circle-left-aggie-blue", "circle-left-copper", "circle-left-silver" 
+			"apple",
+			"box-left-burnt-orange", "box-left-copper", "box-left-silver",
+			"square-right-burnt-orange", "square-right-copper", "square-right-silver",
+			"rounded-inset-burnt-orange", "rounded-inset-copper", "rounded-inset-silver",
+			"circle-left-burnt-orange", "circle-left-copper", "circle-left-silver"
 		];
 	// Themes with a bottomBanner div (includes subtitle and description)
 		var bottomBannerThemeArray = ["emta"];
@@ -22,7 +22,7 @@
 
 	// Canvas ID for the wiki page iframe
 	var iframeID = "#wiki_page_body_ifr";
-	
+
 	(function() {
         function editorExistenceCheck() {
             var editorExists = false;
@@ -41,10 +41,10 @@
         }
         // Add tools when edit link is clicked
 	    $(".edit_link").click(function () {
-	    // Add button to trigger USU tools
+	    // Add button to trigger UT tools
 		   if(!$("#custom-tools-accordion").length>0){
-				$("#wiki_edit_view_secondary").before('<a href="#" class="btn btn-primary addUSUTools"><i class="fa fa-rocket" style="font-size: 18px;"></i> Launch USU Tools</a>');
-				$(".addUSUTools").click(function (e){
+				$("#wiki_edit_view_secondary").before('<a href="#" class="btn btn-primary addUTTools"><i class="fa fa-rocket" style="font-size: 18px;"></i> Launch UT Tools</a>');
+				$(".addUTTools").click(function (e){
 					e.preventDefault();
 					editorExistenceCheck();
 				});
@@ -52,8 +52,8 @@
 	    });
 
 	    if($("#page_doesnt_exist_so_start_editing_it_now").length>0){
-	    	$("#wiki_edit_view_secondary").before('<a href="#" class="btn btn-primary addUSUTools"><i class="fa fa-rocket" style="font-size: 18px;"></i> Launch USU Tools</a>');
-			$(".addUSUTools").click(function (e){
+	    	$("#wiki_edit_view_secondary").before('<a href="#" class="btn btn-primary addUTTools"><i class="fa fa-rocket" style="font-size: 18px;"></i> Launch UT Tools</a>');
+			$(".addUTTools").click(function (e){
 				e.preventDefault();
 				editorExistenceCheck();
 			});
@@ -122,19 +122,19 @@
 							}
 						}, 300);
 					}
-					$(".addUSUTools").remove();
-					$("#usu_tools").append('<a href="#" class="btn btn-mini addStyletoIframe" style="margin:5px 0 0 5px;" data-tooltip="bottom" title="Click this if the css styles are not showing up in the editor"><i class="fa fa-magic"></i> Add Style to Editor</a>');
+					$(".addUTTools").remove();
+					$("#ut_tools").append('<a href="#" class="btn btn-mini addStyletoIframe" style="margin:5px 0 0 5px;" data-tooltip="bottom" title="Click this if the css styles are not showing up in the editor"><i class="fa fa-magic"></i> Add Style to Editor</a>');
 					$(".addStyletoIframe").click(function (e){
 						e.preventDefault();
 						if(!$("#wiki_page_body_ifr").contents().find("body").hasClass('hasStyle')){
 							var $head = $("#wiki_page_body_ifr").contents().find("head");
-							var timestamp =  +(new Date());                
+							var timestamp =  +(new Date());
 							$head.append($("<link/>", { rel: "stylesheet", href: "/assets/vendor.css?1380315297", type: "text/css" }));
-							$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvasCustomTools/css/canvasMCEEditor.css?"+timestamp, type: "text/css" }));
-							$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvastest_branding/css/canvasGlobal.css?"+timestamp, type: "text/css" }));
-							$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvasCustomTools/css/canvasTemplates.css?"+timestamp, type: "text/css" }));
+							$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/css/canvasMCEEditor.css?"+timestamp, type: "text/css" }));
+							$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/canvasGlobal.css?"+timestamp, type: "text/css" }));
+							$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/css/canvasTemplates.css?"+timestamp, type: "text/css" }));
 							$head.append($("<link/>", { rel: "stylesheet", href: "/assets/common.css?1376338847", type: "text/css" }));
-							$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvasCustomTools/font-awesome-4.0.3/css/font-awesome.min.css?"+timestamp, type: "application/font-woff" }));
+							$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/font-awesome-4.0.3/css/font-awesome.min.css?"+timestamp, type: "application/font-woff" }));
 							if($("#wiki_page_body_ifr").contents().find("#custom-css").length>0){
 								$head.append($("<link/>", { rel: "stylesheet", href: "/courses/" + coursenum + "/file_contents/course%20files/global/css/style.css?"+timestamp, type: "text/css" }));
 							}
@@ -146,7 +146,7 @@
 			// Remove tools button if they click cancel.
 		    $("#cancel_editing").click(function (e){
 		    	e.preventDefault();
-		    	$(".addUSUTools").remove();
+		    	$(".addUTTools").remove();
 		    });
 		////// ASSIGNMENTS //////
 			if($("#edit_assignment_wrapper").length>0){
@@ -175,13 +175,13 @@
 			// console.log("add style ran");
 			if(!$("#wiki_page_body_ifr").contents().find("body").hasClass('hasStyle')){
 				var $head = $("#wiki_page_body_ifr").contents().find("head");
-				var timestamp =  +(new Date());                
+				var timestamp =  +(new Date());
 				$head.append($("<link/>", { rel: "stylesheet", href: "/assets/vendor.css?1380315297", type: "text/css" }));
-				$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvasCustomTools/css/canvasMCEEditor.css?"+timestamp, type: "text/css" }));
-				$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvastest_branding/css/canvasGlobal.css?"+timestamp, type: "text/css" }));
-				$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvasCustomTools/css/canvasTemplates.css?"+timestamp, type: "text/css" }));
+				$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/css/canvasMCEEditor.css?"+timestamp, type: "text/css" }));
+				$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/canvasGlobal.css?"+timestamp, type: "text/css" }));
+				$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/css/canvasTemplates.css?"+timestamp, type: "text/css" }));
 				$head.append($("<link/>", { rel: "stylesheet", href: "/assets/common.css?1376338847", type: "text/css" }));
-				$head.append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/canvasCustomTools/font-awesome-4.0.3/css/font-awesome.min.css?"+timestamp, type: "application/font-woff" }));
+				$head.append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/font-awesome-4.0.3/css/font-awesome.min.css?"+timestamp, type: "application/font-woff" }));
 				if($("#wiki_page_body_ifr").contents().find("#custom-css").length>0){
 					$head.append($("<link/>", { rel: "stylesheet", href: "/courses/" + coursenum + "/file_contents/course%20files/global/css/style.css?"+timestamp, type: "text/css" }));
 				}
@@ -201,7 +201,7 @@
 				$(this).addClass("active");
 				$(".mceSectionView, .mceLabelsView").removeClass("active");
 				setDisplay();
-			});		
+			});
 		}
 		function setDisplay(){
 			var bodyClass = "mceContentBody";
@@ -223,14 +223,14 @@
 					$("#editor_tabs").wrap('<div id="custom-tools-wrapper" class="tabs" />').wrap('<div id="canvas_tools" />');
 				}
 
-				// Create tabs for Canvas Tools and USU Tools
+				// Create tabs for Canvas Tools and UT Tools
 				var tabNavigation = '<ul>\
 						<li><a href="#canvas_tools" class="custom-tool-tab">Canvas Tools</a></li>\
-						<li><a href="#usu_tools" id="toolsTrigger" class="custom-tool-tab">USU Tools</a></li>\
+						<li><a href="#ut_tools" id="toolsTrigger" class="custom-tool-tab">UT Tools</a></li>\
 					</ul>';
-				$("#custom-tools-wrapper").append('<div id="usu_tools" />').prepend(tabNavigation);
+				$("#custom-tools-wrapper").append('<div id="ut_tools" />').prepend(tabNavigation);
 				$("#custom-tools-wrapper").tabs({active: 1});
-				$("#usu_tools").html('<div class="btn-group-label">\
+				$("#ut_tools").html('<div class="btn-group-label">\
 					<span>Editor View: </span>\
 					<div class="btn-group mceEditorView">\
 					<a href="#" class="btn btn-mini mceLabelsView" rel="mce-visualblocks">Labels</a>\
@@ -343,10 +343,10 @@
 
 		function toolsOverview(){
 			var addAccordionSection = '<h3>\
-					USU Tools Overview\
+					UT Tools Overview\
 				</h3>\
 				<div>\
-					<p><small>Below you will find a collection of tools designed to assist course creation at USU.</small></p>\
+					<p><small>Below you will find a collection of tools designed to assist course creation at UT.</small></p>\
 					<p><small>These tools may be added to or changed as new needs arise.</small></p>\
 				</div>';
 			$("#custom-tools-accordion").append(addAccordionSection);
@@ -408,7 +408,7 @@
 			getAccPanels();
 			getTabPanels();
 			if($("#breadcrumbs .ellipsible:last").text() == "Start Here"){
-				$("#usu_tools").prepend('<a href="#" class="btn btn-mini btn-primary importStartHere"><i class="fa fa-cloud-download"></i> Import &ldquo;Start Here&rdquo; Boilerplate</a>');
+				$("#ut_tools").prepend('<a href="#" class="btn btn-mini btn-primary importStartHere"><i class="fa fa-cloud-download"></i> Import &ldquo;Start Here&rdquo; Boilerplate</a>');
 				$(".importStartHere").click(function (e){
 					e.preventDefault();
 					$("#wiki_page_body_ifr").contents().find("body").html(startHereContent);
@@ -448,7 +448,7 @@
 						$(this).parent('li').remove();
 						$(iframeID).contents().find(panelToRemove).remove();
 					});
-					
+
 				// create a new section if return/enter is pressed in the new section field
 					$("#newAccPanel").keydown(function(event){
 						if(event.keyCode == 13) {
@@ -743,7 +743,7 @@
 							sortableTabs = false;
 							sortableImage = '';
 							$(".tabsOptions form").hide();
-						} 
+						}
 						$("#tabPanels").append('<li rel=".tab-'+i+'">\
 							'+sortableImage+'\
 							<a href="#" class="mt-markCurrent'+identifyCurrent+'" rel="tab-'+i+'" title="Mark as current week"><i class="icon-check"></i><span class="screenreader-only">Mark as Current Week</span></a>\
@@ -790,9 +790,9 @@
 			// 	$contents = $("#wiki_page_body_ifr").contents();
 			// 	$("#tabPanels").html("");
 			// 	$contents.find(".custom-tabs").html("");
-			// 	$contents.find(".custom-tabs").load('https://usu.test.instructure.com/courses/'+coursenum+'/modules #context_modules', function() {
+			// 	$contents.find(".custom-tabs").load('https://ut.test.instructure.com/courses/'+coursenum+'/modules #context_modules', function() {
 			// 		$contents.find(".custom-tabs").prepend('<ul class="tab-list"></ul>');
-					
+
 			// 		var numOfModules = $contents.find(".context_module").length;
 			// 		for(var i=0; i<numOfModules; i++){
 			// 			var j=i+1;
@@ -911,7 +911,7 @@
 			$("#custom-tools-accordion").append(addAccordionSection);
 			// accordionOptions();
 			advancedListsReady(mceInstance);
-		}	
+		}
 
 	////// On Ready/Click functions  //////
 		function advancedListsReady(mceInstance){
@@ -1295,47 +1295,47 @@
                     <a class="btn btn-mini changeIcon remove icon-end" rel="" data-tooltip="top" title="Place your cursor in an element with an icon and click here to remove it."> Remove Icon</a></p>\
                     <p><small>Additional icons are from <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a></small></p>\
                     </div>';
-			$("#usu_tools").append(contentIconBox);
+			$("#ut_tools").append(contentIconBox);
 
 			var faBrandsIconArray = [
-				"fa fa-adn", "fa fa-android", "fa fa-apple", "fa fa-bitbucket", "fa fa-bitbucket-square", "fa fa-btc", "fa fa-css3", 
-				"fa fa-dribbble", "fa fa-dropbox", "fa fa-facebook", "fa fa-facebook-square", "fa fa-flickr", "fa fa-foursquare", 
-				"fa fa-github", "fa fa-github-alt", "fa fa-github-square", "fa fa-gittip", "fa fa-google-plus", 
-				"fa fa-google-plus-square", "fa fa-html5", "fa fa-instagram", "fa fa-linkedin", "fa fa-linkedin-square", 
-				"fa fa-linux", "fa fa-maxcdn", "fa fa-pagelines", "fa fa-pinterest", "fa fa-pinterest-square", "fa fa-renren", 
-				"fa fa-skype", "fa fa-stack-exchange", "fa fa-stack-overflow", "fa fa-trello", "fa fa-tumblr", "fa fa-tumblr-square", 
-				"fa fa-twitter", "fa fa-twitter-square", "fa fa-vimeo-square", "fa fa-vk", "fa fa-weibo", "fa fa-windows", "fa fa-xing", 
+				"fa fa-adn", "fa fa-android", "fa fa-apple", "fa fa-bitbucket", "fa fa-bitbucket-square", "fa fa-btc", "fa fa-css3",
+				"fa fa-dribbble", "fa fa-dropbox", "fa fa-facebook", "fa fa-facebook-square", "fa fa-flickr", "fa fa-foursquare",
+				"fa fa-github", "fa fa-github-alt", "fa fa-github-square", "fa fa-gittip", "fa fa-google-plus",
+				"fa fa-google-plus-square", "fa fa-html5", "fa fa-instagram", "fa fa-linkedin", "fa fa-linkedin-square",
+				"fa fa-linux", "fa fa-maxcdn", "fa fa-pagelines", "fa fa-pinterest", "fa fa-pinterest-square", "fa fa-renren",
+				"fa fa-skype", "fa fa-stack-exchange", "fa fa-stack-overflow", "fa fa-trello", "fa fa-tumblr", "fa fa-tumblr-square",
+				"fa fa-twitter", "fa fa-twitter-square", "fa fa-vimeo-square", "fa fa-vk", "fa fa-weibo", "fa fa-windows", "fa fa-xing",
 				"fa fa-xing-square", "fa fa-youtube", "fa fa-youtube-play", "fa fa-youtube-square"
 			];
 			var canvasIconArray1 =  [
-				"icon-stats", "icon-paperclip", "icon-media", "icon-address-book", "icon-reset", "icon-announcement", 
-				"icon-analytics", "icon-student-view", "icon-calendar-day", "icon-trash", "icon-speed-grader", 
-				"icon-copy-course", "icon-export-content", "icon-import-content", "icon-discussion", 
-				"icon-discussion-reply", "icon-peer-review", "icon-discussion-new", "icon-edit", "icon-home", 
-				"icon-settings", "icon-compose", "icon-flag", "icon-video", "icon-audio", "icon-outdent", "icon-indent", 
-				"icon-outdent2", "icon-indent2", "icon-forward", "icon-warning", "icon-filmstrip", "icon-rubric", 
-				"icon-rubric-dark", "icon-check-plus", "icon-rss", "icon-rss-add", "icon-quiz", "icon-question", 
-				"icon-drop-down", "icon-minimize", "icon-end", "icon-add", "icon-info", "icon-check", "icon-clock", 
-				"icon-calendar-month", "icon-x", "icon-refresh", "icon-off", "icon-updown", "icon-user-add", 
-				"icon-group", "icon-star", "icon-replied", "icon-hour-glass", "icon-assignment", "icon-message", 
-				"icon-note-dark", "icon-note-light", "icon-tag", "icon-next-unread", "icon-search", "icon-lock", 
-				"icon-unlock", "icon-folder", "icon-toggle-right", "icon-toggle-left", "icon-link", "icon-lti", 
+				"icon-stats", "icon-paperclip", "icon-media", "icon-address-book", "icon-reset", "icon-announcement",
+				"icon-analytics", "icon-student-view", "icon-calendar-day", "icon-trash", "icon-speed-grader",
+				"icon-copy-course", "icon-export-content", "icon-import-content", "icon-discussion",
+				"icon-discussion-reply", "icon-peer-review", "icon-discussion-new", "icon-edit", "icon-home",
+				"icon-settings", "icon-compose", "icon-flag", "icon-video", "icon-audio", "icon-outdent", "icon-indent",
+				"icon-outdent2", "icon-indent2", "icon-forward", "icon-warning", "icon-filmstrip", "icon-rubric",
+				"icon-rubric-dark", "icon-check-plus", "icon-rss", "icon-rss-add", "icon-quiz", "icon-question",
+				"icon-drop-down", "icon-minimize", "icon-end", "icon-add", "icon-info", "icon-check", "icon-clock",
+				"icon-calendar-month", "icon-x", "icon-refresh", "icon-off", "icon-updown", "icon-user-add",
+				"icon-group", "icon-star", "icon-replied", "icon-hour-glass", "icon-assignment", "icon-message",
+				"icon-note-dark", "icon-note-light", "icon-tag", "icon-next-unread", "icon-search", "icon-lock",
+				"icon-unlock", "icon-folder", "icon-toggle-right", "icon-toggle-left", "icon-link", "icon-lti",
 			]
 			var canvasIconArray2 = [
-				"icon-text", "icon-timer", "icon-pin", "icon-like", "icon-collection-save", "icon-remove-from-collection", "icon-collection", 
-				"icon-group-new", "icon-group-new-dark", "icon-user", "icon-standards", "icon-search-address-book", 
-				"icon-facebook", "icon-facebook-boxed", "icon-linkedin", "icon-twitter", "icon-twitter-boxed", 
-				"icon-github", "icon-skype", "icon-wordpress", "icon-pinterest", "icon-gradebook", "icon-document", 
-				"icon-module", "icon-mini-arrow-up", "icon-mini-arrow-down", "icon-mini-arrow-left", 
-				"icon-mini-arrow-right", "icon-arrow-up", "icon-arrow-down", "icon-arrow-left", "icon-arrow-right", 
-				"icon-email", "icon-instructure", "icon-ms-word", "icon-ms-excel", "icon-ms-ppt", "icon-pdf", 
-				"icon-apple", "icon-windows", "icon-android", "icon-heart", "icon-upload", "icon-download", 
-				"icon-text-left", "icon-text-center", "icon-text-right", "icon-mature", "icon-prerequisite", 
-				"icon-educators", "icon-calendar-days", "icon-materials-required", "icon-not-graded", "icon-peer-graded", 
-				"icon-bookmark", "icon-printer", "icon-image", "icon-expand", "icon-collapse", "icon-invitation", 
-				"icon-muted", "icon-unmuted", "icon-plus", "icon-zipped", "icon-publish", "icon-unpublish", 
-				"icon-unpublished", "icon-discussion-check", "icon-discussion-reply-2", "icon-discussion-search", 
-				"icon-discussion-x", "icon-mark-as-read", "icon-more", "icon-syllabus", "icon-settings-2", "icon-reply-2", 
+				"icon-text", "icon-timer", "icon-pin", "icon-like", "icon-collection-save", "icon-remove-from-collection", "icon-collection",
+				"icon-group-new", "icon-group-new-dark", "icon-user", "icon-standards", "icon-search-address-book",
+				"icon-facebook", "icon-facebook-boxed", "icon-linkedin", "icon-twitter", "icon-twitter-boxed",
+				"icon-github", "icon-skype", "icon-wordpress", "icon-pinterest", "icon-gradebook", "icon-document",
+				"icon-module", "icon-mini-arrow-up", "icon-mini-arrow-down", "icon-mini-arrow-left",
+				"icon-mini-arrow-right", "icon-arrow-up", "icon-arrow-down", "icon-arrow-left", "icon-arrow-right",
+				"icon-email", "icon-instructure", "icon-ms-word", "icon-ms-excel", "icon-ms-ppt", "icon-pdf",
+				"icon-apple", "icon-windows", "icon-android", "icon-heart", "icon-upload", "icon-download",
+				"icon-text-left", "icon-text-center", "icon-text-right", "icon-mature", "icon-prerequisite",
+				"icon-educators", "icon-calendar-days", "icon-materials-required", "icon-not-graded", "icon-peer-graded",
+				"icon-bookmark", "icon-printer", "icon-image", "icon-expand", "icon-collapse", "icon-invitation",
+				"icon-muted", "icon-unmuted", "icon-plus", "icon-zipped", "icon-publish", "icon-unpublish",
+				"icon-unpublished", "icon-discussion-check", "icon-discussion-reply-2", "icon-discussion-search",
+				"icon-discussion-x", "icon-mark-as-read", "icon-more", "icon-syllabus", "icon-settings-2", "icon-reply-2",
 				"icon-reply-all-2", "icon-drag-handle"
 			];
 			var faDirectionIconArray = [
@@ -1349,162 +1349,162 @@
 				"fa fa-long-arrow-up", "fa fa-caret-down", "fa fa-caret-left", "fa fa-caret-right", "fa fa-caret-up",
 				"fa fa-caret-square-o-down", "fa fa-caret-square-o-left", "fa fa-caret-square-o-right", "fa fa-caret-square-o-up",
 				"fa fa-hand-o-down", "fa fa-hand-o-left", "fa fa-hand-o-right", "fa fa-hand-o-up", "fa fa-thumbs-down",
-				"fa fa-thumbs-o-down", "fa fa-thumbs-o-up", "fa fa-thumbs-up", "fa fa-sign-in", "fa fa-sign-out", 
+				"fa fa-thumbs-o-down", "fa fa-thumbs-o-up", "fa fa-thumbs-up", "fa fa-sign-in", "fa fa-sign-out",
 				"fa fa-external-link", "fa fa-external-link-square", "fa fa-share-square", "fa fa-share-square-o", "fa fa-share",
-				"fa fa-reply", "fa fa-reply-all", "fa fa-mail-reply-all", "fa fa-repeat", "fa fa-undo", "fa fa-refresh", 
-				"fa fa-retweet", "fa fa-exchange", "fa fa-random", "fa fa-arrows", "fa fa-arrows-alt", "fa fa-arrows-h", 
+				"fa fa-reply", "fa fa-reply-all", "fa fa-mail-reply-all", "fa fa-repeat", "fa fa-undo", "fa fa-refresh",
+				"fa fa-retweet", "fa fa-exchange", "fa fa-random", "fa fa-arrows", "fa fa-arrows-alt", "fa fa-arrows-h",
 				"fa fa-arrows-v", "fa fa-level-down", "fa fa-level-up"
 			];
 			var faEditorIconArray = [
-				"fa fa-link", "fa fa-chain-broken", "fa fa-align-center", "fa fa-align-justify", "fa fa-align-left", 
-				"fa fa-align-right", "fa fa-outdent", "fa fa-indent", "fa fa-font", "fa fa-bold", "fa fa-italic", "fa fa-underline", 
-				"fa fa-text-height", "fa fa-text-width", "fa fa-strikethrough", "fa fa-superscript", "fa fa-subscript", 
-				"fa fa-columns", "fa fa-bar-chart-o", "fa fa-list-alt", "fa fa-list", "fa fa-list-ol", "fa fa-list-ul", 
-				"fa fa-table", "fa fa-th", "fa fa-th-large", "fa fa-th-list", "fa fa-tasks", "fa fa-filter", "fa fa-sort-alpha-asc", 
-				"fa fa-sort-alpha-desc", "fa fa-sort-amount-asc", "fa fa-sort-amount-desc", "fa fa-sort-numeric-asc", 
+				"fa fa-link", "fa fa-chain-broken", "fa fa-align-center", "fa fa-align-justify", "fa fa-align-left",
+				"fa fa-align-right", "fa fa-outdent", "fa fa-indent", "fa fa-font", "fa fa-bold", "fa fa-italic", "fa fa-underline",
+				"fa fa-text-height", "fa fa-text-width", "fa fa-strikethrough", "fa fa-superscript", "fa fa-subscript",
+				"fa fa-columns", "fa fa-bar-chart-o", "fa fa-list-alt", "fa fa-list", "fa fa-list-ol", "fa fa-list-ul",
+				"fa fa-table", "fa fa-th", "fa fa-th-large", "fa fa-th-list", "fa fa-tasks", "fa fa-filter", "fa fa-sort-alpha-asc",
+				"fa fa-sort-alpha-desc", "fa fa-sort-amount-asc", "fa fa-sort-amount-desc", "fa fa-sort-numeric-asc",
 				"fa fa-sort-numeric-desc", "fa fa-sort", "fa fa-sort-asc", "fa fa-sort-desc"
 			];
 			var faFilesIconArray = [
-				"fa fa-download", "fa fa-upload", "fa fa-cloud-upload", "fa fa-cloud-download", "fa fa-folder", "fa fa-folder-o", 
-				"fa fa-folder-open", "fa fa-folder-open-o", "fa fa-hdd-o", "fa fa-file", "fa fa-clipboard", "fa fa-files-o", 
-				"fa fa-file-o", "fa fa-file-text", "fa fa-file-text-o", "fa fa-floppy-o", "fa fa-code-fork", "fa fa-sitemap", 
+				"fa fa-download", "fa fa-upload", "fa fa-cloud-upload", "fa fa-cloud-download", "fa fa-folder", "fa fa-folder-o",
+				"fa fa-folder-open", "fa fa-folder-open-o", "fa fa-hdd-o", "fa fa-file", "fa fa-clipboard", "fa fa-files-o",
+				"fa fa-file-o", "fa fa-file-text", "fa fa-file-text-o", "fa fa-floppy-o", "fa fa-code-fork", "fa fa-sitemap",
 				"fa fa-code", "fa fa-terminal", "fa fa-rss", "fa fa-rss-square"
 			];
 			var faMediaIconArray = [
-				"fa fa-arrows-alt", "fa fa-backward", "fa fa-compress", "fa fa-eject", "fa fa-expand", "fa fa-fast-backward", 
-				"fa fa-fast-forward", "fa fa-forward", "fa fa-pause", "fa fa-play", "fa fa-play-circle", "fa fa-play-circle-o", 
-				"fa fa-step-backward", "fa fa-step-forward", "fa fa-stop", "fa fa-youtube-play", "fa fa-video-camera", 
-				"fa fa-volume-down", "fa fa-volume-off", "fa fa-volume-up", "fa fa-film", "fa fa-microphone", 
-				"fa fa-microphone-slash", "fa fa-headphones", "fa fa-picture-o", "fa fa-camera", "fa fa-camera-retro", 
+				"fa fa-arrows-alt", "fa fa-backward", "fa fa-compress", "fa fa-eject", "fa fa-expand", "fa fa-fast-backward",
+				"fa fa-fast-forward", "fa fa-forward", "fa fa-pause", "fa fa-play", "fa fa-play-circle", "fa fa-play-circle-o",
+				"fa fa-step-backward", "fa fa-step-forward", "fa fa-stop", "fa fa-youtube-play", "fa fa-video-camera",
+				"fa fa-volume-down", "fa fa-volume-off", "fa fa-volume-up", "fa fa-film", "fa fa-microphone",
+				"fa fa-microphone-slash", "fa fa-headphones", "fa fa-picture-o", "fa fa-camera", "fa fa-camera-retro",
 				"fa fa-crop"
 			];
 			var faObjectsIconArray = [
-				"fa fa-clock-o", "fa fa-calendar", "fa fa-calendar-o", "fa fa-search", "fa fa-search-minus", "fa fa-search-plus", 
-				"fa fa-anchor", "fa fa-building-o", "fa fa-home", "fa fa-archive", "fa fa-briefcase", "fa fa-suitcase", "fa fa-tag", 
-				"fa fa-tags", "fa fa-leaf", "fa fa-inbox", "fa fa-ticket", "fa fa-trophy", "fa fa-beer", "fa fa-road", "fa fa-truck", 
-				"fa fa-fighter-jet", "fa fa-plane", "fa fa-rocket", "fa fa-wrench", "fa fa-tachometer", "fa fa-trash-o", 
-				"fa fa-umbrella", "fa fa-glass", "fa fa-coffee", "fa fa-eraser", "fa fa-magnet", "fa fa-bell", "fa fa-bell-o", 
-				"fa fa-book", "fa fa-bug", "fa fa-bullhorn", "fa fa-cutlery", "fa fa-fire-extinguisher", "fa fa-flag", 
-				"fa fa-flag-checkered", "fa fa-flag-o", "fa fa-flask", "fa fa-gamepad", "fa fa-gavel", "fa fa-magic", "fa fa-gift", 
-				"fa fa-key", "fa fa-lock", "fa fa-unlock", "fa fa-unlock-alt", "fa fa-thumb-tack", "fa fa-lightbulb-o", 
-				"fa fa-paperclip", "fa fa-scissors", "fa fa-pencil", "fa fa-pencil-square", "fa fa-pencil-square-o", 
-				"fa fa-envelope", "fa fa-envelope-o", "fa fa-desktop", "fa fa-laptop", "fa fa-tablet", "fa fa-mobile", 
-				"fa fa-keyboard-o", "fa fa-phone", "fa fa-phone-square", "fa fa-print", "fa fa-shopping-cart", "fa fa-money", 
-				"fa fa-credit-card", "fa fa-ambulance", "fa fa-h-square", "fa fa-hospital-o", "fa fa-medkit", "fa fa-plus-square", 
+				"fa fa-clock-o", "fa fa-calendar", "fa fa-calendar-o", "fa fa-search", "fa fa-search-minus", "fa fa-search-plus",
+				"fa fa-anchor", "fa fa-building-o", "fa fa-home", "fa fa-archive", "fa fa-briefcase", "fa fa-suitcase", "fa fa-tag",
+				"fa fa-tags", "fa fa-leaf", "fa fa-inbox", "fa fa-ticket", "fa fa-trophy", "fa fa-beer", "fa fa-road", "fa fa-truck",
+				"fa fa-fighter-jet", "fa fa-plane", "fa fa-rocket", "fa fa-wrench", "fa fa-tachometer", "fa fa-trash-o",
+				"fa fa-umbrella", "fa fa-glass", "fa fa-coffee", "fa fa-eraser", "fa fa-magnet", "fa fa-bell", "fa fa-bell-o",
+				"fa fa-book", "fa fa-bug", "fa fa-bullhorn", "fa fa-cutlery", "fa fa-fire-extinguisher", "fa fa-flag",
+				"fa fa-flag-checkered", "fa fa-flag-o", "fa fa-flask", "fa fa-gamepad", "fa fa-gavel", "fa fa-magic", "fa fa-gift",
+				"fa fa-key", "fa fa-lock", "fa fa-unlock", "fa fa-unlock-alt", "fa fa-thumb-tack", "fa fa-lightbulb-o",
+				"fa fa-paperclip", "fa fa-scissors", "fa fa-pencil", "fa fa-pencil-square", "fa fa-pencil-square-o",
+				"fa fa-envelope", "fa fa-envelope-o", "fa fa-desktop", "fa fa-laptop", "fa fa-tablet", "fa fa-mobile",
+				"fa fa-keyboard-o", "fa fa-phone", "fa fa-phone-square", "fa fa-print", "fa fa-shopping-cart", "fa fa-money",
+				"fa fa-credit-card", "fa fa-ambulance", "fa fa-h-square", "fa fa-hospital-o", "fa fa-medkit", "fa fa-plus-square",
 				"fa fa-stethoscope", "fa fa-user-md", "fa fa-wheelchair"
 			];
 			var faShapesIconArray = [
-				"fa fa-cloud", "fa fa-asterisk", "fa fa-tint", "fa fa-fire", "fa fa-location-arrow", "fa fa-map-marker", 
-				"fa fa-globe", "fa fa-sun-o", "fa fa-moon-o", "fa fa-star", "fa fa-star-o", "fa fa-star-half-o", "fa fa-star-half", 
-				"fa fa-bolt", "fa fa-music", "fa fa-certificate", "fa fa-eye", "fa fa-eye-slash", "fa fa-heart", "fa fa-heart-o", 
-				"fa fa-square", "fa fa-square-o", "fa fa-bookmark", "fa fa-bookmark-o", "fa fa-spinner", "fa fa-power-off", 
-				"fa fa-compass", "fa fa-circle", "fa fa-adjust", "fa fa-circle-o", "fa fa-ban", "fa fa-dot-circle-o", 
-				"fa fa-bullseye", "fa fa-smile-o", "fa fa-meh-o", "fa fa-frown-o", "fa fa-users", 
-				"fa fa-user", "fa fa-male", "fa fa-female", "fa fa-lemon-o", "fa fa-shield", "fa fa-ellipsis-h", "fa fa-ellipsis-v", "fa fa-cog", "fa fa-cogs", 
-				"fa fa-puzzle-piece", "fa fa-signal", "fa fa-bars", "fa fa-barcode", "fa fa-qrcode", "fa fa-crosshairs", 
+				"fa fa-cloud", "fa fa-asterisk", "fa fa-tint", "fa fa-fire", "fa fa-location-arrow", "fa fa-map-marker",
+				"fa fa-globe", "fa fa-sun-o", "fa fa-moon-o", "fa fa-star", "fa fa-star-o", "fa fa-star-half-o", "fa fa-star-half",
+				"fa fa-bolt", "fa fa-music", "fa fa-certificate", "fa fa-eye", "fa fa-eye-slash", "fa fa-heart", "fa fa-heart-o",
+				"fa fa-square", "fa fa-square-o", "fa fa-bookmark", "fa fa-bookmark-o", "fa fa-spinner", "fa fa-power-off",
+				"fa fa-compass", "fa fa-circle", "fa fa-adjust", "fa fa-circle-o", "fa fa-ban", "fa fa-dot-circle-o",
+				"fa fa-bullseye", "fa fa-smile-o", "fa fa-meh-o", "fa fa-frown-o", "fa fa-users",
+				"fa fa-user", "fa fa-male", "fa fa-female", "fa fa-lemon-o", "fa fa-shield", "fa fa-ellipsis-h", "fa fa-ellipsis-v", "fa fa-cog", "fa fa-cogs",
+				"fa fa-puzzle-piece", "fa fa-signal", "fa fa-bars", "fa fa-barcode", "fa fa-qrcode", "fa fa-crosshairs",
 				"fa fa-comments", "fa fa-comments-o", "fa fa-comment"
 			];
 			var faSymbolsIconArray = [
 				"fa fa-minus", "fa fa-minus-circle", "fa fa-minus-square", "fa fa-minus-square-o", "fa fa-plus", "fa fa-plus-circle",
-				"fa fa-plus-square", "fa fa-plus-square-o", "fa fa-times", "fa fa-times-circle", "fa fa-times-circle-o", 
-				"fa fa-exclamation", "fa fa-exclamation-circle", "fa fa-exclamation-triangle", "fa fa-question", 
-				"fa fa-question-circle", "fa fa-info", "fa fa-info-circle", "fa fa-quote-left", "fa fa-quote-right", 
-				"fa fa-check-square-o", "fa fa-check-square", "fa fa-check-circle-o", "fa fa-check-circle", "fa fa-check", 
+				"fa fa-plus-square", "fa fa-plus-square-o", "fa fa-times", "fa fa-times-circle", "fa fa-times-circle-o",
+				"fa fa-exclamation", "fa fa-exclamation-circle", "fa fa-exclamation-triangle", "fa fa-question",
+				"fa fa-question-circle", "fa fa-info", "fa fa-info-circle", "fa fa-quote-left", "fa fa-quote-right",
+				"fa fa-check-square-o", "fa fa-check-square", "fa fa-check-circle-o", "fa fa-check-circle", "fa fa-check",
 				"fa fa-btc", "fa fa-usd", "fa fa-eur", "fa fa-gbp", "fa fa-inr", "fa fa-jpy", "fa fa-krw", "fa fa-rub", "fa fa-try"
 			];
 			// var iconSearchArray = [
-			// 	'fa fa-adjust', "fa fa-adn", "fa fa-align-center", "fa fa-align-justify", "fa fa-align-left", "fa fa-align-right", 
-			// 	"fa fa-ambulance", "fa fa-anchor", "fa fa-android", "fa fa-angle-double-down", "fa fa-angle-double-left", 
-			// 	"fa fa-angle-double-right", "fa fa-angle-double-up", "fa fa-angle-down", "fa fa-angle-left", "fa fa-angle-right", 
-			// 	"fa fa-angle-up", "fa fa-apple", "fa fa-archive", "fa fa-arrow-circle-down", "fa fa-arrow-circle-left", 
-			// 	"fa fa-arrow-circle-o-down", "fa fa-arrow-circle-o-left", "fa fa-arrow-circle-o-right", "fa fa-arrow-circle-o-up", 
-			// 	"fa fa-arrow-circle-right", "fa fa-arrow-circle-up", "fa fa-arrow-down", "fa fa-arrow-left", "fa fa-arrow-right", 
-			// 	"fa fa-arrow-up", "fa fa-arrows", "fa fa-arrows-alt", "fa fa-arrows-h", "fa fa-arrows-v", "fa fa-asterisk", 
-			// 	"fa fa-backward", "fa fa-ban", "fa fa-bar-chart-o", "fa fa-barcode", "fa fa-bars", "fa fa-beer", "fa fa-bell", 
-			// 	"fa fa-bell-o", "fa fa-bitbucket", "fa fa-bitbucket-square", "fa fa-bitcoin (alias)", "fa fa-bold", "fa fa-bolt", 
-			// 	"fa fa-book", "fa fa-bookmark", "fa fa-bookmark-o", "fa fa-briefcase", "fa fa-btc", "fa fa-bug", "fa fa-building-o", 
-			// 	"fa fa-bullhorn", "fa fa-bullseye", "fa fa-calendar", "fa fa-calendar-o", "fa fa-camera", "fa fa-camera-retro", 
-			// 	"fa fa-caret-down", "fa fa-caret-left", "fa fa-caret-right", "fa fa-caret-square-o-down", "fa fa-caret-square-o-left", 
-			// 	"fa fa-caret-square-o-right", "fa fa-caret-square-o-up", "fa fa-caret-up", "fa fa-certificate", "fa fa-chain (alias)", 
-			// 	"fa fa-chain-broken", "fa fa-check", "fa fa-check-circle", "fa fa-check-circle-o", "fa fa-check-square", 
-			// 	"fa fa-check-square-o", "fa fa-chevron-circle-down", "fa fa-chevron-circle-left", "fa fa-chevron-circle-right", 
-			// 	"fa fa-chevron-circle-up", "fa fa-chevron-down", "fa fa-chevron-left", "fa fa-chevron-right", "fa fa-chevron-up", 
-			// 	"fa fa-circle", "fa fa-circle-o", "fa fa-clipboard", "fa fa-clock-o", "fa fa-cloud", "fa fa-cloud-download", 
-			// 	"fa fa-cloud-upload", "fa fa-cny (alias)", "fa fa-code", "fa fa-code-fork", "fa fa-coffee", "fa fa-cog", 
-			// 	"fa fa-cogs", "fa fa-columns", "fa fa-comment", "fa fa-comment-o", "fa fa-comments", "fa fa-comments-o", 
-			// 	"fa fa-compass", "fa fa-compress", "fa fa-copy (alias)", "fa fa-credit-card", "fa fa-crop", "fa fa-crosshairs", 
-			// 	"fa fa-css3", "fa fa-cut (alias)", "fa fa-cutlery", "fa fa-dashboard (alias)", "fa fa-dedent (alias)", 
-			// 	"fa fa-desktop", "fa fa-dollar (alias)", "fa fa-dot-circle-o", "fa fa-download", "fa fa-dribbble", "fa fa-dropbox", 
-			// 	"fa fa-edit (alias)", "fa fa-eject", "fa fa-ellipsis-h", "fa fa-ellipsis-v", "fa fa-envelope", "fa fa-envelope-o", 
-			// 	"fa fa-eraser", "fa fa-eur", "fa fa-euro (alias)", "fa fa-exchange", "fa fa-exclamation", "fa fa-exclamation-circle", 
-			// 	"fa fa-exclamation-triangle", "fa fa-expand", "fa fa-external-link", "fa fa-external-link-square", "fa fa-eye", 
-			// 	"fa fa-eye-slash", "fa fa-facebook", "fa fa-facebook-square", "fa fa-fast-backward", "fa fa-fast-forward", 
-			// 	"fa fa-female", "fa fa-fighter-jet", "fa fa-file", "fa fa-file-o", "fa fa-file-text", "fa fa-file-text-o", 
-			// 	"fa fa-files-o", "fa fa-film", "fa fa-filter", "fa fa-fire", "fa fa-fire-extinguisher", "fa fa-flag", 
-			// 	"fa fa-flag-checkered", "fa fa-flag-o", "fa fa-flash (alias)", "fa fa-flask", "fa fa-flickr", "fa fa-floppy-o", 
-			// 	"fa fa-folder", "fa fa-folder-o", "fa fa-folder-open", "fa fa-folder-open-o", "fa fa-font", "fa fa-forward", 
-			// 	"fa fa-foursquare", "fa fa-frown-o", "fa fa-gamepad", "fa fa-gavel", "fa fa-gbp", "fa fa-gear (alias)", 
-			// 	"fa fa-gears (alias)", "fa fa-gift", "fa fa-github", "fa fa-github-alt", "fa fa-github-square", "fa fa-gittip", 
-			// 	"fa fa-glass", "fa fa-globe", "fa fa-google-plus", "fa fa-google-plus-square", "fa fa-group (alias)", 
-			// 	"fa fa-h-square", "fa fa-hand-o-down", "fa fa-hand-o-left", "fa fa-hand-o-right", "fa fa-hand-o-up", "fa fa-hdd-o", 
-			// 	"fa fa-headphones", "fa fa-heart", "fa fa-heart-o", "fa fa-home", "fa fa-hospital-o", "fa fa-html5", "fa fa-inbox", 
-			// 	"fa fa-indent", "fa fa-info", "fa fa-info-circle", "fa fa-inr", "fa fa-instagram", "fa fa-italic", "fa fa-jpy", 
-			// 	"fa fa-key", "fa fa-keyboard-o", "fa fa-krw", "fa fa-laptop", "fa fa-leaf", "fa fa-legal (alias)", "fa fa-lemon-o", 
-			// 	"fa fa-level-down", "fa fa-level-up", "fa fa-lightbulb-o", "fa fa-link", "fa fa-linkedin", "fa fa-linkedin-square", 
-			// 	"fa fa-linux", "fa fa-list", "fa fa-list-alt", "fa fa-list-ol", "fa fa-list-ul", "fa fa-location-arrow", "fa fa-lock", 
-			// 	"fa fa-long-arrow-down", "fa fa-long-arrow-left", "fa fa-long-arrow-right", "fa fa-long-arrow-up", "fa fa-magic", 
-			// 	"fa fa-magnet", "fa fa-mail-forward (alias)", "fa fa-mail-reply (alias)", "fa fa-mail-reply-all", "fa fa-male", 
-			// 	"fa fa-map-marker", "fa fa-maxcdn", "fa fa-medkit", "fa fa-meh-o", "fa fa-microphone", "fa fa-microphone-slash", 
-			// 	"fa fa-minus", "fa fa-minus-circle", "fa fa-minus-square", "fa fa-minus-square-o", "fa fa-mobile", 
-			// 	"fa fa-mobile-phone (alias)", "fa fa-money", "fa fa-moon-o", "fa fa-music", "fa fa-outdent", "fa fa-pagelines", 
-			// 	"fa fa-paperclip", "fa fa-paste (alias)", "fa fa-pause", "fa fa-pencil", "fa fa-pencil-square", "fa fa-pencil-square-o", 
-			// 	"fa fa-phone", "fa fa-phone-square", "fa fa-picture-o", "fa fa-pinterest", "fa fa-pinterest-square", "fa fa-plane", 
-			// 	"fa fa-play", "fa fa-play-circle", "fa fa-play-circle-o", "fa fa-plus", "fa fa-plus-circle", "fa fa-plus-square", 
-			// 	"fa fa-plus-square-o", "fa fa-power-off", "fa fa-print", "fa fa-puzzle-piece", "fa fa-qrcode", "fa fa-question", 
-			// 	"fa fa-question-circle", "fa fa-quote-left", "fa fa-quote-right", "fa fa-random", "fa fa-refresh", "fa fa-renren", 
-			// 	"fa fa-repeat", "fa fa-reply", "fa fa-reply-all", "fa fa-retweet", "fa fa-rmb (alias)", "fa fa-road", "fa fa-rocket", 
-			// 	"fa fa-rotate-left (alias)", "fa fa-rotate-right (alias)", "fa fa-rouble (alias)", "fa fa-rss", "fa fa-rss-square", 
-			// 	"fa fa-rub", "fa fa-ruble (alias)", "fa fa-rupee (alias)", "fa fa-save (alias)", "fa fa-scissors", "fa fa-search", 
-			// 	"fa fa-search-minus", "fa fa-search-plus", "fa fa-share", "fa fa-share-square", "fa fa-share-square-o", "fa fa-shield", 
-			// 	"fa fa-shopping-cart", "fa fa-sign-in", "fa fa-sign-out", "fa fa-signal", "fa fa-sitemap", "fa fa-skype", "fa fa-smile-o", 
-			// 	"fa fa-sort", "fa fa-sort-alpha-asc", "fa fa-sort-alpha-desc", "fa fa-sort-amount-asc", "fa fa-sort-amount-desc", 
-			// 	"fa fa-sort-asc", "fa fa-sort-desc", "fa fa-sort-down (alias)", "fa fa-sort-numeric-asc", "fa fa-sort-numeric-desc", 
-			// 	"fa fa-sort-up (alias)", "fa fa-spinner", "fa fa-square", "fa fa-square-o", "fa fa-stack-exchange", "fa fa-stack-overflow", 
-			// 	"fa fa-star", "fa fa-star-half", "fa fa-star-half-empty (alias)", "fa fa-star-half-full (alias)", "fa fa-star-half-o", 
-			// 	"fa fa-star-o", "fa fa-step-backward", "fa fa-step-forward", "fa fa-stethoscope", "fa fa-stop", "fa fa-strikethrough", 
-			// 	"fa fa-subscript", "fa fa-suitcase", "fa fa-sun-o", "fa fa-superscript", "fa fa-table", "fa fa-tablet", "fa fa-tachometer", 
-			// 	"fa fa-tag", "fa fa-tags", "fa fa-tasks", "fa fa-terminal", "fa fa-text-height", "fa fa-text-width", "fa fa-th", 
-			// 	"fa fa-th-large", "fa fa-th-list", "fa fa-thumb-tack", "fa fa-thumbs-down", "fa fa-thumbs-o-down", "fa fa-thumbs-o-up", 
-			// 	"fa fa-thumbs-up", "fa fa-ticket", "fa fa-times", "fa fa-times-circle", "fa fa-times-circle-o", "fa fa-tint", 
-			// 	"fa fa-toggle-down (alias)", "fa fa-toggle-left (alias)", "fa fa-toggle-right (alias)", "fa fa-toggle-up (alias)", 
-			// 	"fa fa-trash-o", "fa fa-trello", "fa fa-trophy", "fa fa-truck", "fa fa-try", "fa fa-tumblr", "fa fa-tumblr-square", 
-			// 	"fa fa-turkish-lira (alias)", "fa fa-twitter", "fa fa-twitter-square", "fa fa-umbrella", "fa fa-underline", "fa fa-undo", 
-			// 	"fa fa-unlink (alias)", "fa fa-unlock", "fa fa-unlock-alt", "fa fa-unsorted (alias)", "fa fa-upload", "fa fa-usd", 
-			// 	"fa fa-user", "fa fa-user-md", "fa fa-users", "fa fa-video-camera", "fa fa-vimeo-square", "fa fa-vk", "fa fa-volume-down", 
-			// 	"fa fa-volume-off", "fa fa-volume-up", "fa fa-warning (alias)", "fa fa-weibo", "fa fa-wheelchair", "fa fa-windows", 
-			// 	"fa fa-won (alias)", "fa fa-wrench", "fa fa-xing", "fa fa-xing-square", "fa fa-yen (alias)", "fa fa-youtube", 
-			// 	"fa fa-youtube-play", "fa fa-youtube-square", "icon-stats", "icon-paperclip", "icon-media", "icon-address-book", 
-			// 	"icon-reset", "icon-announcement", "icon-analytics", "icon-student-view", "icon-calendar-day", "icon-trash", 
-			// 	"icon-speed-grader", "icon-copy-course", "icon-export-content", "icon-import-content", "icon-discussion", 
-			// 	"icon-discussion-reply", "icon-peer-review", "icon-discussion-new", "icon-edit", "icon-home", "icon-settings", 
-			// 	"icon-compose", "icon-flag", "icon-video", "icon-audio", "icon-outdent", "icon-indent", "icon-outdent2", "icon-indent2", 
-			// 	"icon-forward", "icon-warning", "icon-filmstrip", "icon-rubric", "icon-rubric-dark", "icon-check-plus", "icon-rss", 
-			// 	"icon-rss-add", "icon-quiz", "icon-question", "icon-drop-down", "icon-minimize", "icon-end", "icon-add", "icon-info", 
-			// 	"icon-check", "icon-clock", "icon-calendar-month", "icon-x", "icon-refresh", "icon-off", "icon-updown", "icon-user-add", 
-			// 	"icon-group", "icon-star", "icon-replied", "icon-hour-glass", "icon-assignment", "icon-message", "icon-note-dark", 
-			// 	"icon-note-light", "icon-tag", "icon-next-unread", "icon-search", "icon-lock", "icon-unlock", "icon-folder", 
-			// 	"icon-toggle-right", "icon-toggle-left", "icon-link", "icon-lti ", "icon-text", "icon-timer", "icon-pin", "icon-like", 
-			// 	"icon-collection-save", "icon-collection", "icon-group-new", "icon-group-new-dark", "icon-user", "icon-standards", 
-			// 	"icon-search-address-book", "icon-facebook", "icon-facebook-boxed", "icon-linkedin", "icon-twitter", "icon-twitter-boxed", 
-			// 	"icon-github", "icon-skype", "icon-wordpress", "icon-pinterest", "icon-gradebook", "icon-document", "icon-module", 
-			// 	"icon-mini-arrow-up", "icon-mini-arrow-down", "icon-mini-arrow-left", "icon-mini-arrow-right", "icon-arrow-up", 
-			// 	"icon-arrow-down", "icon-arrow-left", "icon-arrow-right", "icon-email", "icon-instructure", "icon-ms-word", 
-			// 	"icon-ms-excel", "icon-ms-ppt", "icon-pdf", "icon-apple", "icon-windows", "icon-android", "icon-heart", "icon-upload", 
-			// 	"icon-download", "icon-text-left", "icon-text-center", "icon-text-right", "icon-mature", "icon-prerequisite", 
-			// 	"icon-educators", "icon-calendar-days", "icon-materials-required", "icon-not-graded", "icon-peer-graded", "icon-bookmark", 
-			// 	"icon-printer", "icon-image", "icon-expand", "icon-collapse", "icon-invitation", "icon-muted", "icon-unmuted", 
-			// 	"icon-plus", "icon-zipped", "icon-publish", "icon-unpublish", "icon-unpublished", "icon-discussion-check", 
-			// 	"icon-discussion-reply-2", "icon-discussion-search", "icon-discussion-x", "icon-mark-as-read", "icon-more", 
+			// 	'fa fa-adjust', "fa fa-adn", "fa fa-align-center", "fa fa-align-justify", "fa fa-align-left", "fa fa-align-right",
+			// 	"fa fa-ambulance", "fa fa-anchor", "fa fa-android", "fa fa-angle-double-down", "fa fa-angle-double-left",
+			// 	"fa fa-angle-double-right", "fa fa-angle-double-up", "fa fa-angle-down", "fa fa-angle-left", "fa fa-angle-right",
+			// 	"fa fa-angle-up", "fa fa-apple", "fa fa-archive", "fa fa-arrow-circle-down", "fa fa-arrow-circle-left",
+			// 	"fa fa-arrow-circle-o-down", "fa fa-arrow-circle-o-left", "fa fa-arrow-circle-o-right", "fa fa-arrow-circle-o-up",
+			// 	"fa fa-arrow-circle-right", "fa fa-arrow-circle-up", "fa fa-arrow-down", "fa fa-arrow-left", "fa fa-arrow-right",
+			// 	"fa fa-arrow-up", "fa fa-arrows", "fa fa-arrows-alt", "fa fa-arrows-h", "fa fa-arrows-v", "fa fa-asterisk",
+			// 	"fa fa-backward", "fa fa-ban", "fa fa-bar-chart-o", "fa fa-barcode", "fa fa-bars", "fa fa-beer", "fa fa-bell",
+			// 	"fa fa-bell-o", "fa fa-bitbucket", "fa fa-bitbucket-square", "fa fa-bitcoin (alias)", "fa fa-bold", "fa fa-bolt",
+			// 	"fa fa-book", "fa fa-bookmark", "fa fa-bookmark-o", "fa fa-briefcase", "fa fa-btc", "fa fa-bug", "fa fa-building-o",
+			// 	"fa fa-bullhorn", "fa fa-bullseye", "fa fa-calendar", "fa fa-calendar-o", "fa fa-camera", "fa fa-camera-retro",
+			// 	"fa fa-caret-down", "fa fa-caret-left", "fa fa-caret-right", "fa fa-caret-square-o-down", "fa fa-caret-square-o-left",
+			// 	"fa fa-caret-square-o-right", "fa fa-caret-square-o-up", "fa fa-caret-up", "fa fa-certificate", "fa fa-chain (alias)",
+			// 	"fa fa-chain-broken", "fa fa-check", "fa fa-check-circle", "fa fa-check-circle-o", "fa fa-check-square",
+			// 	"fa fa-check-square-o", "fa fa-chevron-circle-down", "fa fa-chevron-circle-left", "fa fa-chevron-circle-right",
+			// 	"fa fa-chevron-circle-up", "fa fa-chevron-down", "fa fa-chevron-left", "fa fa-chevron-right", "fa fa-chevron-up",
+			// 	"fa fa-circle", "fa fa-circle-o", "fa fa-clipboard", "fa fa-clock-o", "fa fa-cloud", "fa fa-cloud-download",
+			// 	"fa fa-cloud-upload", "fa fa-cny (alias)", "fa fa-code", "fa fa-code-fork", "fa fa-coffee", "fa fa-cog",
+			// 	"fa fa-cogs", "fa fa-columns", "fa fa-comment", "fa fa-comment-o", "fa fa-comments", "fa fa-comments-o",
+			// 	"fa fa-compass", "fa fa-compress", "fa fa-copy (alias)", "fa fa-credit-card", "fa fa-crop", "fa fa-crosshairs",
+			// 	"fa fa-css3", "fa fa-cut (alias)", "fa fa-cutlery", "fa fa-dashboard (alias)", "fa fa-dedent (alias)",
+			// 	"fa fa-desktop", "fa fa-dollar (alias)", "fa fa-dot-circle-o", "fa fa-download", "fa fa-dribbble", "fa fa-dropbox",
+			// 	"fa fa-edit (alias)", "fa fa-eject", "fa fa-ellipsis-h", "fa fa-ellipsis-v", "fa fa-envelope", "fa fa-envelope-o",
+			// 	"fa fa-eraser", "fa fa-eur", "fa fa-euro (alias)", "fa fa-exchange", "fa fa-exclamation", "fa fa-exclamation-circle",
+			// 	"fa fa-exclamation-triangle", "fa fa-expand", "fa fa-external-link", "fa fa-external-link-square", "fa fa-eye",
+			// 	"fa fa-eye-slash", "fa fa-facebook", "fa fa-facebook-square", "fa fa-fast-backward", "fa fa-fast-forward",
+			// 	"fa fa-female", "fa fa-fighter-jet", "fa fa-file", "fa fa-file-o", "fa fa-file-text", "fa fa-file-text-o",
+			// 	"fa fa-files-o", "fa fa-film", "fa fa-filter", "fa fa-fire", "fa fa-fire-extinguisher", "fa fa-flag",
+			// 	"fa fa-flag-checkered", "fa fa-flag-o", "fa fa-flash (alias)", "fa fa-flask", "fa fa-flickr", "fa fa-floppy-o",
+			// 	"fa fa-folder", "fa fa-folder-o", "fa fa-folder-open", "fa fa-folder-open-o", "fa fa-font", "fa fa-forward",
+			// 	"fa fa-foursquare", "fa fa-frown-o", "fa fa-gamepad", "fa fa-gavel", "fa fa-gbp", "fa fa-gear (alias)",
+			// 	"fa fa-gears (alias)", "fa fa-gift", "fa fa-github", "fa fa-github-alt", "fa fa-github-square", "fa fa-gittip",
+			// 	"fa fa-glass", "fa fa-globe", "fa fa-google-plus", "fa fa-google-plus-square", "fa fa-group (alias)",
+			// 	"fa fa-h-square", "fa fa-hand-o-down", "fa fa-hand-o-left", "fa fa-hand-o-right", "fa fa-hand-o-up", "fa fa-hdd-o",
+			// 	"fa fa-headphones", "fa fa-heart", "fa fa-heart-o", "fa fa-home", "fa fa-hospital-o", "fa fa-html5", "fa fa-inbox",
+			// 	"fa fa-indent", "fa fa-info", "fa fa-info-circle", "fa fa-inr", "fa fa-instagram", "fa fa-italic", "fa fa-jpy",
+			// 	"fa fa-key", "fa fa-keyboard-o", "fa fa-krw", "fa fa-laptop", "fa fa-leaf", "fa fa-legal (alias)", "fa fa-lemon-o",
+			// 	"fa fa-level-down", "fa fa-level-up", "fa fa-lightbulb-o", "fa fa-link", "fa fa-linkedin", "fa fa-linkedin-square",
+			// 	"fa fa-linux", "fa fa-list", "fa fa-list-alt", "fa fa-list-ol", "fa fa-list-ul", "fa fa-location-arrow", "fa fa-lock",
+			// 	"fa fa-long-arrow-down", "fa fa-long-arrow-left", "fa fa-long-arrow-right", "fa fa-long-arrow-up", "fa fa-magic",
+			// 	"fa fa-magnet", "fa fa-mail-forward (alias)", "fa fa-mail-reply (alias)", "fa fa-mail-reply-all", "fa fa-male",
+			// 	"fa fa-map-marker", "fa fa-maxcdn", "fa fa-medkit", "fa fa-meh-o", "fa fa-microphone", "fa fa-microphone-slash",
+			// 	"fa fa-minus", "fa fa-minus-circle", "fa fa-minus-square", "fa fa-minus-square-o", "fa fa-mobile",
+			// 	"fa fa-mobile-phone (alias)", "fa fa-money", "fa fa-moon-o", "fa fa-music", "fa fa-outdent", "fa fa-pagelines",
+			// 	"fa fa-paperclip", "fa fa-paste (alias)", "fa fa-pause", "fa fa-pencil", "fa fa-pencil-square", "fa fa-pencil-square-o",
+			// 	"fa fa-phone", "fa fa-phone-square", "fa fa-picture-o", "fa fa-pinterest", "fa fa-pinterest-square", "fa fa-plane",
+			// 	"fa fa-play", "fa fa-play-circle", "fa fa-play-circle-o", "fa fa-plus", "fa fa-plus-circle", "fa fa-plus-square",
+			// 	"fa fa-plus-square-o", "fa fa-power-off", "fa fa-print", "fa fa-puzzle-piece", "fa fa-qrcode", "fa fa-question",
+			// 	"fa fa-question-circle", "fa fa-quote-left", "fa fa-quote-right", "fa fa-random", "fa fa-refresh", "fa fa-renren",
+			// 	"fa fa-repeat", "fa fa-reply", "fa fa-reply-all", "fa fa-retweet", "fa fa-rmb (alias)", "fa fa-road", "fa fa-rocket",
+			// 	"fa fa-rotate-left (alias)", "fa fa-rotate-right (alias)", "fa fa-rouble (alias)", "fa fa-rss", "fa fa-rss-square",
+			// 	"fa fa-rub", "fa fa-ruble (alias)", "fa fa-rupee (alias)", "fa fa-save (alias)", "fa fa-scissors", "fa fa-search",
+			// 	"fa fa-search-minus", "fa fa-search-plus", "fa fa-share", "fa fa-share-square", "fa fa-share-square-o", "fa fa-shield",
+			// 	"fa fa-shopping-cart", "fa fa-sign-in", "fa fa-sign-out", "fa fa-signal", "fa fa-sitemap", "fa fa-skype", "fa fa-smile-o",
+			// 	"fa fa-sort", "fa fa-sort-alpha-asc", "fa fa-sort-alpha-desc", "fa fa-sort-amount-asc", "fa fa-sort-amount-desc",
+			// 	"fa fa-sort-asc", "fa fa-sort-desc", "fa fa-sort-down (alias)", "fa fa-sort-numeric-asc", "fa fa-sort-numeric-desc",
+			// 	"fa fa-sort-up (alias)", "fa fa-spinner", "fa fa-square", "fa fa-square-o", "fa fa-stack-exchange", "fa fa-stack-overflow",
+			// 	"fa fa-star", "fa fa-star-half", "fa fa-star-half-empty (alias)", "fa fa-star-half-full (alias)", "fa fa-star-half-o",
+			// 	"fa fa-star-o", "fa fa-step-backward", "fa fa-step-forward", "fa fa-stethoscope", "fa fa-stop", "fa fa-strikethrough",
+			// 	"fa fa-subscript", "fa fa-suitcase", "fa fa-sun-o", "fa fa-superscript", "fa fa-table", "fa fa-tablet", "fa fa-tachometer",
+			// 	"fa fa-tag", "fa fa-tags", "fa fa-tasks", "fa fa-terminal", "fa fa-text-height", "fa fa-text-width", "fa fa-th",
+			// 	"fa fa-th-large", "fa fa-th-list", "fa fa-thumb-tack", "fa fa-thumbs-down", "fa fa-thumbs-o-down", "fa fa-thumbs-o-up",
+			// 	"fa fa-thumbs-up", "fa fa-ticket", "fa fa-times", "fa fa-times-circle", "fa fa-times-circle-o", "fa fa-tint",
+			// 	"fa fa-toggle-down (alias)", "fa fa-toggle-left (alias)", "fa fa-toggle-right (alias)", "fa fa-toggle-up (alias)",
+			// 	"fa fa-trash-o", "fa fa-trello", "fa fa-trophy", "fa fa-truck", "fa fa-try", "fa fa-tumblr", "fa fa-tumblr-square",
+			// 	"fa fa-turkish-lira (alias)", "fa fa-twitter", "fa fa-twitter-square", "fa fa-umbrella", "fa fa-underline", "fa fa-undo",
+			// 	"fa fa-unlink (alias)", "fa fa-unlock", "fa fa-unlock-alt", "fa fa-unsorted (alias)", "fa fa-upload", "fa fa-usd",
+			// 	"fa fa-user", "fa fa-user-md", "fa fa-users", "fa fa-video-camera", "fa fa-vimeo-square", "fa fa-vk", "fa fa-volume-down",
+			// 	"fa fa-volume-off", "fa fa-volume-up", "fa fa-warning (alias)", "fa fa-weibo", "fa fa-wheelchair", "fa fa-windows",
+			// 	"fa fa-won (alias)", "fa fa-wrench", "fa fa-xing", "fa fa-xing-square", "fa fa-yen (alias)", "fa fa-youtube",
+			// 	"fa fa-youtube-play", "fa fa-youtube-square", "icon-stats", "icon-paperclip", "icon-media", "icon-address-book",
+			// 	"icon-reset", "icon-announcement", "icon-analytics", "icon-student-view", "icon-calendar-day", "icon-trash",
+			// 	"icon-speed-grader", "icon-copy-course", "icon-export-content", "icon-import-content", "icon-discussion",
+			// 	"icon-discussion-reply", "icon-peer-review", "icon-discussion-new", "icon-edit", "icon-home", "icon-settings",
+			// 	"icon-compose", "icon-flag", "icon-video", "icon-audio", "icon-outdent", "icon-indent", "icon-outdent2", "icon-indent2",
+			// 	"icon-forward", "icon-warning", "icon-filmstrip", "icon-rubric", "icon-rubric-dark", "icon-check-plus", "icon-rss",
+			// 	"icon-rss-add", "icon-quiz", "icon-question", "icon-drop-down", "icon-minimize", "icon-end", "icon-add", "icon-info",
+			// 	"icon-check", "icon-clock", "icon-calendar-month", "icon-x", "icon-refresh", "icon-off", "icon-updown", "icon-user-add",
+			// 	"icon-group", "icon-star", "icon-replied", "icon-hour-glass", "icon-assignment", "icon-message", "icon-note-dark",
+			// 	"icon-note-light", "icon-tag", "icon-next-unread", "icon-search", "icon-lock", "icon-unlock", "icon-folder",
+			// 	"icon-toggle-right", "icon-toggle-left", "icon-link", "icon-lti ", "icon-text", "icon-timer", "icon-pin", "icon-like",
+			// 	"icon-collection-save", "icon-collection", "icon-group-new", "icon-group-new-dark", "icon-user", "icon-standards",
+			// 	"icon-search-address-book", "icon-facebook", "icon-facebook-boxed", "icon-linkedin", "icon-twitter", "icon-twitter-boxed",
+			// 	"icon-github", "icon-skype", "icon-wordpress", "icon-pinterest", "icon-gradebook", "icon-document", "icon-module",
+			// 	"icon-mini-arrow-up", "icon-mini-arrow-down", "icon-mini-arrow-left", "icon-mini-arrow-right", "icon-arrow-up",
+			// 	"icon-arrow-down", "icon-arrow-left", "icon-arrow-right", "icon-email", "icon-instructure", "icon-ms-word",
+			// 	"icon-ms-excel", "icon-ms-ppt", "icon-pdf", "icon-apple", "icon-windows", "icon-android", "icon-heart", "icon-upload",
+			// 	"icon-download", "icon-text-left", "icon-text-center", "icon-text-right", "icon-mature", "icon-prerequisite",
+			// 	"icon-educators", "icon-calendar-days", "icon-materials-required", "icon-not-graded", "icon-peer-graded", "icon-bookmark",
+			// 	"icon-printer", "icon-image", "icon-expand", "icon-collapse", "icon-invitation", "icon-muted", "icon-unmuted",
+			// 	"icon-plus", "icon-zipped", "icon-publish", "icon-unpublish", "icon-unpublished", "icon-discussion-check",
+			// 	"icon-discussion-reply-2", "icon-discussion-search", "icon-discussion-x", "icon-mark-as-read", "icon-more",
 			// 	"icon-syllabus", "icon-settings-2", "icon-reply-2", "icon-reply-all-2", "icon-drag-handle", "icon-remove-from-collection"
 			// ]
 
@@ -1541,7 +1541,7 @@
                         }
                     })
                 });
-                // Put category buttons into two btn-groups 
+                // Put category buttons into two btn-groups
                     var step = 4;
                     var buttons= $("#iconLists > a");
                     buttons.each(function(i) {
@@ -1555,7 +1555,7 @@
                         });
                        changeIcon();
                     }
-                    $("#usu_tools").append('<a href="#" class="btn btn-mini activateIcons" style="margin-top:5px;"><i class="fa fa-tags"></i> Content Icons</a>');
+                    $("#ut_tools").append('<a href="#" class="btn btn-mini activateIcons" style="margin-top:5px;"><i class="fa fa-tags"></i> Content Icons</a>');
                 // Trigger for Icon dialog
                     $(".activateIcons").click(function (e) {
                         e.preventDefault();
@@ -1728,7 +1728,7 @@
 				$(".wrapHighlight").click(function (e){
 					e.preventDefault();
 					var ed = tinyMCE.get(mceInstance);
-					ed.focus(); 
+					ed.focus();
 					ed.selection.setContent('<div class="alert">' + ed.selection.getContent() + '</div>');
 				});
 			$(".customSpanHighlight").click(function (e){
@@ -1738,7 +1738,7 @@
 				var parentElement = ed.dom.getParent(ed.selection.getNode(), 'span.muted, span.text-warning, span.text-error, span.text-info, span.text-success, span');
 				// console.log(parentElement);
 				if(parentElement == null){
-					ed.focus(); 
+					ed.focus();
 					ed.selection.setContent('<span class="'+myClass+'">' + ed.selection.getContent() + '</span>');
 				} else {
 					changeEmphasis(parentElement);
@@ -1885,7 +1885,7 @@
 					e.preventDefault();
 					var $contents = $(iframeID).contents();
 					var ed = tinyMCE.get(mceInstance);
-					ed.focus(); 
+					ed.focus();
 					ed.selection.setContent('<a href="#" class="customModalToggler">' + ed.selection.getContent() + '</a>');
 					// Check to see if modal contents already exist and add section
 					addModal();
@@ -1911,7 +1911,7 @@
 					var numToolTips = $contents.find(".tooltipTrigger").length;
 					// console.log(numToolTips);
 					var newToolTipNum = numToolTips+1;
-					ed.focus(); 
+					ed.focus();
 					ed.selection.setContent('<a href="#" id="tooltip'+newToolTipNum+'" class="tooltipTrigger">' + ed.selection.getContent() + '</a>');
 					var toolTipElement = '<div class="tooltipText tooltip'+newToolTipNum+'">Tooltip Text</div>';
 					var parentElement = ed.dom.getParent(ed.selection.getNode());
@@ -1948,7 +1948,7 @@
 					var numPopovers = $contents.find(".popoverTrigger").length;
 					// console.log(numPopovers);
 					var newPopoverNum = numPopovers+1;
-					ed.focus(); 
+					ed.focus();
 					ed.selection.setContent('<a href="#" id="Popover'+newPopoverNum+'" class="popoverTrigger">' + ed.selection.getContent() + '</a>');
 					var PopoverElement = '<div class="popoverContent Popover'+newPopoverNum+'"><h4>Popover Title</h4><p>Popover Text</p></div>';
 					var parentElement = ed.dom.getParent(ed.selection.getNode());
@@ -1981,7 +1981,7 @@
 					e.preventDefault();
 					var $contents = $(iframeID).contents();
 					var ed = tinyMCE.get(mceInstance);
-					ed.focus(); 
+					ed.focus();
 					ed.selection.setContent('<div class="expander">' + ed.selection.getContent() + '</div>');
 				});
 				$(".removeReadMore").click(function (e){
@@ -2030,7 +2030,7 @@
 						}
 					});
 					// $("#addProgressBar i").removeClass("icon-add").addClass("icon-reply-2");
-			}				
+			}
 		}
 		function checkTooltips(){
 			if($(iframeID).contents().find(".tooltipText").length>0){
@@ -2155,7 +2155,7 @@
 				$(".pbcolor").click(function(){
 					addProgressBar();
 					var colorClass = $(this).attr("rel");
-					$(iframeID).contents().find('.ui-progressbar-value').removeClass("red grey aggie").addClass(colorClass);
+					$(iframeID).contents().find('.ui-progressbar-value').removeClass("red grey longhorn").addClass(colorClass);
 				});
 			if($(iframeID).contents().find('.custom-progressbar').length>0){
 				$(".deletePBTool").show();
@@ -2183,7 +2183,7 @@
 						<span>Color:</span>\
 						<div class="btn-group">\
 							<a href="#" class="btn btn-mini pbcolor default" rel="">Default</a>\
-							<a href="#" class="btn btn-mini pbcolor aggie" rel="aggie">Aggie</a>\
+							<a href="#" class="btn btn-mini pbcolor longhorn" rel="longhorn">Longhorn</a>\
 							<a href="#" class="btn btn-mini pbcolor red" rel="red">Red</a>\
 							<a href="#" class="btn btn-mini pbcolor grey" rel="grey">Grey</a>\
 						</div>\
@@ -2660,7 +2660,7 @@
         function loadBlooms(){
 			//// BLOOMS ////
 			$.each(bloomsRevisedSections, function (key, value) {
-			    
+
 			    $("#bloomsControls").append('<a class="btn btn-mini '+key+' bloomsCat">'+key+'</a>');
 			    $("."+key).click(function (e) {
 			        e.preventDefault();
@@ -2676,7 +2676,7 @@
 			        }
 			    })
 			});
-			// Put category buttons into two btn-groups 
+			// Put category buttons into two btn-groups
 			    var step = 3;
 			    var buttons= $("#bloomsControls > a");
 			    buttons.each(function(i) {
@@ -2732,7 +2732,7 @@
 	    			objectiveCheck();
 		    	});
         }
-                    
+
 		// If the checked section exists, move it, if not add it
 			function checkSection(sectionName, sectionArray){
 				var $contents = $(iframeID).contents();
@@ -2918,7 +2918,7 @@
 				templateCheck();
 				var $contents = $(iframeID).contents();
 				var ed = tinyMCE.get(mceInstance);
-				ed.focus(); 
+				ed.focus();
 				ed.selection.setContent('<div class="'+sectionName+'">' + ed.selection.getContent() + '</div>');
 				var tempSection = $contents.find('.'+sectionName);
 				var container = $contents.find("#template-content");
@@ -2930,7 +2930,7 @@
 			function wrapSection(mceInstance){
 				var $contents = $(iframeID).contents();
 				var ed = tinyMCE.get(mceInstance);
-				ed.focus(); 
+				ed.focus();
 				ed.selection.setContent('<div class="temp">' + ed.selection.getContent() + '</div>');
 				var tempSection = $contents.find(".temp");
 				var sectionTitle = $(tempSection).find("h3:first").text();
@@ -3123,7 +3123,7 @@
 							$(iframeID).contents().find(".markHeading tr:first-child").remove();
 							$(iframeID).contents().find(".markHeading").prepend("<thead>"+topRow+"</thead>");
 							$(iframeID).contents().find(".markHeading thead td").each(function() {
-								$(this).replaceWith('<th>' + $(this).text().trim() + '</th>'); 
+								$(this).replaceWith('<th>' + $(this).text().trim() + '</th>');
 							});
 						}
 					// remove temp class and check to see if it has the table class
@@ -3296,7 +3296,7 @@
 				// Output theme thumbs
 				outputThemes(themeArray);
 				outputThemes(bottomBannerThemeArray);
-				
+
 
 
 				var $contents = $(iframeID).contents();
@@ -3361,10 +3361,10 @@
 					$("#customCSS").prop('checked', true);
 				}
 				// change over old method
-					if($contents.find('#usu-custom-css').length>0){
+					if($contents.find('#ut-custom-css').length>0){
 						// if it has contents unwrap them
-						if($contents.find("#usu-custom-css").text().length>1){
-							$contents.find("#usu-custom-css").contents().unwrap();
+						if($contents.find("#ut-custom-css").text().length>1){
+							$contents.find("#ut-custom-css").contents().unwrap();
 							$contents.find("body").prepend('<div id="custom-css">&nbsp;</div>');
 						}
 						$("#customCSS").prop('checked', true);
@@ -3389,14 +3389,14 @@
 				addStyletoIframe();
 				var $contents = $(iframeID).contents();
 				// Remove or change old template elements
-					if($contents.find('#usu-template-page').length>0){
-						$contents.find('#usu-template-page').attr('id', 'template-wrapper');
+					if($contents.find('#ut-template-page').length>0){
+						$contents.find('#ut-template-page').attr('id', 'template-wrapper');
 					}
-					if($contents.find('#usu-template-banner').length>0){
-						$contents.find('#usu-template-banner').attr('id', 'module-page-banner');
+					if($contents.find('#ut-template-banner').length>0){
+						$contents.find('#ut-template-banner').attr('id', 'module-page-banner');
 					}
-					if($contents.find('#usu-template-list').length>0){
-						$contents.find('#usu-template-list').contents().unwrap();
+					if($contents.find('#ut-template-list').length>0){
+						$contents.find('#ut-template-list').contents().unwrap();
 						$contents.find('#module-page-banner').after('<div id="template-content" />');
 					}
 				if($contents.find("#template-wrapper").length>0){
@@ -3419,7 +3419,7 @@
 			// Loop through theme array and output thumbs
 			function outputThemes(themeArray){
 				$.each(themeArray, function (i) {
-					$(".themes").append('<li id="'+this+'" class="template-theme" rel="'+this+'" title="'+this+' theme"><img src="https://elearn.usu.edu/canvasCustomTools/images/template_thumbs/'+this+'.png" width="45" alt="'+this+'"></a></li>');
+					$(".themes").append('<li id="'+this+'" class="template-theme" rel="'+this+'" title="'+this+' theme"><img src="https://ctl.utexas.edu/onramps-canvas/customTools/1.0/images/template_thumbs/'+this+'.png" width="45" alt="'+this+'"></a></li>');
 	            });
 			}
 
@@ -3430,9 +3430,9 @@
 				// Look to see if mod-num exists and grab value
 				if($contents.find('.mod-num').length>0 && $contents.find('.mod-num').text() !== ""){
 					var modNum = $contents.find('.mod-num').text();
-				} else if ($contents.find('.usu-mod-num').length>0){
-					var modNum = $contents.find('.usu-mod-num').text();
-					$contents.find('.usu-mod-num').remove();
+				} else if ($contents.find('.ut-mod-num').length>0){
+					var modNum = $contents.find('.ut-mod-num').text();
+					$contents.find('.ut-mod-num').remove();
 				} else {
 					var modNum = "#";
 				}
@@ -3490,7 +3490,7 @@
 ///////////////////////////////
 
 	// function getQuiz(courseID, quizID){
-	// 	$('.quickCheck').load('https://usu.beta.instructure.com/courses/258347/quizzes/327129/take?preview=1 .all_questions');
+	// 	$('.quickCheck').load('https://ut.beta.instructure.com/courses/258347/quizzes/327129/take?preview=1 .all_questions');
 	// }
 
 	// function getURLParameter(name) {
@@ -3511,7 +3511,7 @@
 		'<div style="width: 150px; height: 186px; float: right; margin: 5px 0 10px 10px; border: 1px solid #000; overflow: hidden;"><span style="display: block; margin: 10px;">Instructor Photo Goes Here</span></div>' +
 		'<p>Text of letter. Introduce yourself, describe how you got into this field and why you teach this class. Give a little insight as to why this course is important. Let the student know you are a human being invested in the course and in the student&ldquo;s success and get the student as excited as the student will permit himself or herself to be.</p>' +
 		'<p>First Last</p>' +
-		'<p>First M. Last, Ph.D.<br />435-797-XXXX | first.last@usu.edu&nbsp;| website<br /><span style="font-size: 13px; line-height: 1.5;">Department<br /></span><span style="font-size: 13px; line-height: 1.5;">UMC Old Main Hill, Logan, UT 84322</span></p>' +
+		'<p>First M. Last, Ph.D.<br />435-797-XXXX | first.last@utexas.edu&nbsp;| website<br /><span style="font-size: 13px; line-height: 1.5;">Department<br /></span><span style="font-size: 13px; line-height: 1.5;">UMC Old Main Hill, Logan, UT 84322</span></p>' +
 		'<br />' +
 		'<p>&nbsp;</p>' +
 		'<p><em>Now, please follow the steps below to continue your orientation to this course.</em></p>' +
@@ -3531,7 +3531,7 @@
 		'</div>' +
 		'<div class="Step3">' +
 		'<h3 class="icon-search-address-book">Step 3: Library information and student support</h3>' +
-		'<p><span>Visit the&nbsp;</span><a href="http://library.usu.edu/">library website</a><span>&nbsp;to learn&nbsp;</span><a href="http://distance.usu.edu/orientation/library/">what services are provided for online students</a><span>.</span></p>' +
+		'<p><span>Visit the&nbsp;</span><a href="http://library.utexas.edu/">library website</a><span>&nbsp;to learn&nbsp;</span><a href="http://distance.utexas.edu/orientation/library/">what services are provided for online students</a><span>.</span></p>' +
 		'</div>' +
 		'<div class="Step4">' +
 		'<h3 class="icon-settings">Step 4: Read the technical requirements page</h3>' +
@@ -3539,7 +3539,7 @@
 		'</div>' +
 		'<div class="Step5">' +
 		'<h3 class="icon-info">Step 5: Read about academic integrity and netiquette</h3>' +
-		'<p><span>All students at Utah State University agree on admission to abide by the university&nbsp;</span><em>Honor Code</em><span>. Please review this&nbsp;</span><a title="Honor Pledge" href="/courses/'+coursenum+'/wiki/honor-pledge">Academic Integrity</a><span>&nbsp;tutorial to familiarize yourself with USU policies and procedures pertaining to the USU honor code. This tutorial links to an additional, in-depth review on how to&nbsp;</span><a title="Academic Dishonesty Defined" href="/courses/'+coursenum+'/wiki/academic-dishonesty-defined">avoid plagiarism and cite sources</a><span>, which you are strongly encouraged to review. Also, please review the&nbsp;</span><a href="http://www.albion.com/netiquette/corerules.html" target="_blank">core rules of netiquette</a><span>&nbsp;for some guidelines and expectations on how to behave in an online learning environment.</span></p>' +
+		'<p><span>All students at Utah State University agree on admission to abide by the university&nbsp;</span><em>Honor Code</em><span>. Please review this&nbsp;</span><a title="Honor Pledge" href="/courses/'+coursenum+'/wiki/honor-pledge">Academic Integrity</a><span>&nbsp;tutorial to familiarize yourself with UT policies and procedures pertaining to the UT honor code. This tutorial links to an additional, in-depth review on how to&nbsp;</span><a title="Academic Dishonesty Defined" href="/courses/'+coursenum+'/wiki/academic-dishonesty-defined">avoid plagiarism and cite sources</a><span>, which you are strongly encouraged to review. Also, please review the&nbsp;</span><a href="http://www.albion.com/netiquette/corerules.html" target="_blank">core rules of netiquette</a><span>&nbsp;for some guidelines and expectations on how to behave in an online learning environment.</span></p>' +
 		'</div>' +
 		'<div class="NextSteps">' +
 		'<h3 class="icon-module">Next Steps: Begin course content</h3>' +

@@ -1,4 +1,4 @@
-// This code is was created by the Center of Innovative Design and Instruction at Utah State University. 
+// This code is was created by the Center of Innovative Design and Instruction at Utah State University.
 // It is released under the AGPLv3 license. For more information about this license, go to http://www.gnu.org/licenses/agpl.html
 
 ///////////////////////////////
@@ -9,7 +9,7 @@ function addStyletoIframe() {
     // Because TinyMCE editor acts up occasionally, this will add a class to the iframe body to help determine if styles are applied
     if(!$("#course_syllabus_body_ifr").contents().find("body").hasClass('hasStyle')){
         var $head = $("#course_syllabus_body_ifr").contents().find("head");
-        var timestamp =  +(new Date());                
+        var timestamp =  +(new Date());
         $head.append($("<link/>", { rel: "stylesheet", href: "/assets/vendor.css?1380315297", type: "text/css" }));
         $head.append($("<link/>", { rel: "stylesheet", href: toolsPath+"/css/canvasMCEEditor.css?"+timestamp, type: "text/css" }));
         $head.append($("<link/>", { rel: "stylesheet", href: globalCSSPath+"?"+timestamp, type: "text/css" }));
@@ -20,7 +20,7 @@ function addStyletoIframe() {
             }
         $("#course_syllabus_body_ifr").contents().find("body").css('background-image', 'none').addClass('hasStyle');;
     } else {
-        $("#usu_tools").append('<a href="#" class="btn btn-mini addStyletoIframe" style="margin:5px 0 0 5px;"><i class="fa fa-magic"></i> Add Style to Editor</a>');
+        $("#ut_tools").append('<a href="#" class="btn btn-mini addStyletoIframe" style="margin:5px 0 0 5px;"><i class="fa fa-magic"></i> Add Style to Editor</a>');
         $(".addStyletoIframe").click(function (e){
            addStyletoIframe();
         });
@@ -51,7 +51,7 @@ function editorDisplayTypes() {
         $(this).addClass("active");
         $(".mceSectionView, .mceLabelsView").removeClass("active");
         setEditorDisplay();
-    });     
+    });
 }
 // Control whether or not to add policies on save
 function insertPolicies() {
@@ -105,7 +105,7 @@ function setEverythingUp() {
         $("#syllabusContainer").insertAfter("#edit_course_syllabus_form");
     // }, 600);
 
-    // $("#usu_tools").html("");
+    // $("#ut_tools").html("");
     function customToolsCheck() {
         if ($("#custom-tools-accordion h3").length > 0) {
             var customToolsExist = true;
@@ -129,7 +129,7 @@ function setEverythingUp() {
             setEditorDisplay();
             editorDisplayTypes();
             addStyletoIframe();
-            $(".addUSUTools").remove();
+            $(".addUTTools").remove();
             return;
         } else {
             setTimeout(function () {
@@ -157,13 +157,13 @@ function editorExistenceCheck() {
 (function () {
     "use strict";
     console.log('I loaded');
-    var timestamp =  +(new Date()); 
+    var timestamp =  +(new Date());
     $("head").append($("<link/>", { rel: "stylesheet", href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css?"+timestamp }));
     // Setup items based on mceEditor existing
     $(".edit_syllabus_link").click(function () {
         if(!$("#custom-tools-accordion").length>0){
-            $("#editor_tabs").before('<a href="#" class="btn btn-primary addUSUTools" style="margin-bottom: 5px;"><i class="fa fa-rocket" style="font-size: 18px;"></i> Launch USU Tools</a>');
-            $(".addUSUTools").click(function (e){
+            $("#editor_tabs").before('<a href="#" class="btn btn-primary addUTTools" style="margin-bottom: 5px;"><i class="fa fa-rocket" style="font-size: 18px;"></i> Launch UT Tools</a>');
+            $(".addUTTools").click(function (e){
                 e.preventDefault();
                 editorExistenceCheck();
                 $(".toggle_views_link").get(0).scrollIntoView();
@@ -173,7 +173,7 @@ function editorExistenceCheck() {
             $("#custom-tools-wrapper").show();
             $("#custom-tools-wrapper ul:first").remove();
             $("#custom-tools-wrapper").contents().unwrap();
-            $("#usu_tools").remove();
+            $("#ut_tools").remove();
             $("#editor_tabs").unwrap();
             setTimeout(function () {
                 editorExistenceCheck();
@@ -209,14 +209,14 @@ function editorExistenceCheck() {
                 if ($("#editor_tabs").length > 0) {
                     $("#editor_tabs").wrap('<div id="custom-tools-wrapper" class="tabs" />').wrap('<div id="canvas_tools" />');
                 }
-                // Create tabs for Canvas Tools and USU Tools
+                // Create tabs for Canvas Tools and UT Tools
                 var tabNavigation = '<ul>\
                         <li><a href="#canvas_tools" class="custom-tool-tab">Canvas Tools</a></li>\
-                        <li><a href="#usu_tools" id="toolsTrigger" class="custom-tool-tab">USU Tools</a></li>\
+                        <li><a href="#ut_tools" id="toolsTrigger" class="custom-tool-tab">UT Tools</a></li>\
                     </ul>';
-                $("#custom-tools-wrapper").append('<div id="usu_tools" />').prepend(tabNavigation);
-                $("#custom-tools-wrapper").tabs({active: 1}); 
-                $("#usu_tools").html('<div class="btn-group-label">\
+                $("#custom-tools-wrapper").append('<div id="ut_tools" />').prepend(tabNavigation);
+                $("#custom-tools-wrapper").tabs({active: 1});
+                $("#ut_tools").html('<div class="btn-group-label">\
                     <span>Editor View: </span>\
                     <div class="btn-group mceEditorView">\
                     <a href="#" class="btn btn-mini mceLabelsView" rel="mce-visualblocks">Labels</a>\
@@ -253,7 +253,7 @@ function editorExistenceCheck() {
 
     // Add a section for buttons before section order controls
         function globalButtons() {
-            $("#usu_tools").append('<div class="global_buttons" />');
+            $("#ut_tools").append('<div class="global_buttons" />');
             // Remove Empty Button
                 $('.global_buttons').append('<a class="btn btn-mini remove-empty" href="#" data-tooltip="left"\
                     title="This button will clean up the page contents by removing any empty elements.<p>This is especially useful when using the <i class=\'icon-collection-save\'></i> feature.</p>">\
@@ -299,7 +299,7 @@ function editorExistenceCheck() {
 
 ///////////////////////////////
 //    SYLLABUS TOOLS         //
-/////////////////////////////// 
+///////////////////////////////
 
 
     ////// PRIMARY SYLLABUS Sections //////
@@ -316,7 +316,7 @@ function editorExistenceCheck() {
                             <ul style="list-style-type: none;">\
                                 <li>Teacher Name</li>\
                                 <li>797-1000</li>\
-                                <li>teacher@usu.edu</li>\
+                                <li>teacher@utexas.edu</li>\
                             </ul>\
                             <h5>Office Hours</h5>\
                             <p>List hours</p></div>';
@@ -324,7 +324,7 @@ function editorExistenceCheck() {
                         var teachingAssistants = '<div class="teachingAssistants" style="margin-left:10px;"><h4>Teaching Assistant</h4>\
                             <ul style="list-style-type: none;">\
                                 <li>TA Name</li>\
-                                <li>ta@usu.edu</li>\
+                                <li>ta@utexas.edu</li>\
                             </ul></div>';
                     // Course Description
                         var course_description = '<div class="course_description" style="margin-left:10px;"><h4>Course Description</h4>\
@@ -350,16 +350,16 @@ function editorExistenceCheck() {
                         var canvasInfo = '<div class="canvas" style="margin-left:10px;"><h4>Canvas</h4>\
                             <p>Canvas is the where course content, grades, and communication will reside for this course.</p>\
                             <ul>\
-                                <li><a class="external" href="http://canvas.usu.edu/" target="_blank">http://canvas.usu.edu</a></li>\
+                                <li><a class="external" href="http://canvas.utexas.edu/" target="_blank">http://canvas.utexas.edu</a></li>\
                                 <ul>\
-                                    <li>Your <strong>username</strong> is your <strong>A#</strong>, and your <strong>password</strong> is your global password (the same one you use for Banner or Aggiemail).</li>\
+                                    <li>Login with your EID.</li>\
                                 </ul>\
-                            <li>For <a class="external" href="http://canvas.usu.edu/" target="_blank">Canvas</a>, <a class="external" href="https://id.usu.edu/Password/Help/#password" target="_blank">Passwords</a>, or any other computer-related technical support contact the <a class="external" href="http://it.usu.edu/" target="_blank">IT Service Desk</a>.</li>\
+                            <li>For <a class="external" href="http://canvas.utexas.edu/" target="_blank">Canvas</a>, <a class="external" href="https://id.utexas.edu/Password/Help/#password" target="_blank">Passwords</a>, or any other computer-related technical support contact the <a class="external" href="http://it.utexas.edu/" target="_blank">IT Service Desk</a>.</li>\
                                 <ul>\
                                     <li>435 797-4357 (797-HELP)</li>\
                                     <li>877 878-8325</li>\
-                                    <li><a class="external" href="http://it.usu.edu/" target="_blank">http://it.usu.edu</a></li>\
-                                    <li><a href="mailto:servicedesk@usu.edu">servicedesk@usu.edu</a></li>\
+                                    <li><a class="external" href="http://it.utexas.edu/" target="_blank">http://it.utexas.edu</a></li>\
+                                    <li><a href="mailto:servicedesk@utexas.edu">servicedesk@utexas.edu</a></li>\
                                 </ul>\
                             </ul></div>';
                     // Course Software
@@ -371,7 +371,7 @@ function editorExistenceCheck() {
                         var courseText = '<div class="textbook-readings" style="margin-left:10px;"><h4>Textbook & Reading Materials</h4>\
                             <p>The text for this class will be\
                             The Course Syllabus: A Learning-Centered Approach by O&rsquo;brein, Millis &amp; Cohen, second edition, published by Jossey-Bass, ISDN#047019617.&nbsp;<br />\
-                            You may purchase this book at the&nbsp;<a class="external" href="http://campusstore.usu.edu/" target="_blank">USU bookstore</a>&nbsp;or online. Make sure you get the second edition!</p>\
+                            You may purchase this book at the&nbsp;<a class="external" href="http://campusstore.utexas.edu/" target="_blank">UT bookstore</a>&nbsp;or online. Make sure you get the second edition!</p>\
                             </div>';
                     // Presentations
                         var courseVideos = '<div class="videos" style="margin-left:10px;"><h4>Videos</h4>\
@@ -404,7 +404,7 @@ function editorExistenceCheck() {
                         var courseExams = '<div class="exams" style="margin-left:10px;"><h4>Exams</h4>\
                             <p>Text</p></div>';
 
-                // Syllabus Policies 
+                // Syllabus Policies
                     var policies ='<div class="policies">\
                         <h3>COURSE POLICIES</h3>\
                         </div>';
@@ -462,8 +462,8 @@ function editorExistenceCheck() {
                     var reorderTrigger = '<a class="btn btn-mini reorderTrigger" style="margin-top:5px;" data-tooltip="left" title="Use this to add, reorder or remove primary sections in the syllabus.">\
                               Work with Primary Sections</span>\
                             </a>';
-                    $("#usu_tools").append(reorderTrigger+addReorderSection);
-                    $("#usu_tools").append('<p style="font-size:10px;margin: 10px 0 0 0">Developed by the <a href="http://salsa.usu.edu/" target="_blank">SALSA</a> team at CIDI</p>');
+                    $("#ut_tools").append(reorderTrigger+addReorderSection);
+                    $("#ut_tools").append('<p style="font-size:10px;margin: 10px 0 0 0">Developed by the <a href="http://salsa.utexas.edu/" target="_blank">SALSA</a> team at CIDI</p>');
                     // Dialog trigger
                         $(".reorderTrigger").click(function (e) {
                             e.preventDefault();
@@ -487,7 +487,7 @@ function editorExistenceCheck() {
                     sortableSyllabusSections(sectionArray);
                     syllabusSelectionToSection(mceInstance);
                 }, 300);
-                
+
 
                 // Functions to run when a section checkbox is changed
                     $('.primary-sections-list input:checkbox').change(function () {
@@ -640,7 +640,7 @@ function editorExistenceCheck() {
                     syllabusTemplateCheck();
                     var $contents = $("#course_syllabus_body_ifr").contents();
                     var ed = tinyMCE.get(mceInstance);
-                    ed.focus(); 
+                    ed.focus();
                     ed.selection.setContent('<div class="'+sectionName+'">' + ed.selection.getContent() + '</div>');
                     var tempSection = $contents.find('.'+sectionName);
                     var container = $contents.find("#template-content");
@@ -652,7 +652,7 @@ function editorExistenceCheck() {
                 function wrapPrimarySection(mceInstance) {
                     var $contents = $("#course_syllabus_body_ifr").contents();
                     var ed = tinyMCE.get(mceInstance);
-                    ed.focus(); 
+                    ed.focus();
                     ed.selection.setContent('<div class="temp">' + ed.selection.getContent() + '</div>');
                     var tempSection = $contents.find(".temp");
                     var sectionTitle = $(tempSection).find("h3").text();
@@ -787,7 +787,7 @@ function editorExistenceCheck() {
                         e.preventDefault();
                         var sectionName = $(this).attr("rel");
                         var ed = tinyMCE.get(mceInstance);
-                        ed.focus(); 
+                        ed.focus();
                         ed.selection.setContent('<div class="'+sectionName+'">' + ed.selection.getContent() + '</div>');
                         $(this).hide();
                         $(this).parent("li").find("input").prop('checked', true);
@@ -833,14 +833,14 @@ function editorExistenceCheck() {
                             <ul style="list-style-type: none;">\
                                 <li>Teacher Name</li>\
                                 <li>797-1000</li>\
-                                <li>teacher@usu.edu</li>\
+                                <li>teacher@utexas.edu</li>\
                             </ul>\
                             <h5>Office Hours</h5>\
                             <p>List hours</p></div>';
                         var additionalTA = '<div class="additionalTA"><h4>Teaching Assistant</h4>\
                             <ul style="list-style-type: none;">\
                                 <li>TA Name</li>\
-                                <li>ta@usu.edu</li>\
+                                <li>ta@utexas.edu</li>\
                             </ul></div>';
 
                         $(".addInstructor").click(function (e) {
@@ -937,7 +937,7 @@ function editorExistenceCheck() {
                         'evaluate':bloomsRevisedEvaluate,
                         'create':bloomsRevisedCreate
                     }
-                    
+
                     function additionalOutcomesControls() {
                         var learningOutcomesBtns = '<h4>Learning Outcomes</h4>\
                             <a class="btn btn-mini bloomsBtn" href="#" data-tooltip="top" title="Select action verbs from<br> Bloom\'s &rdquo;Revised&ldquo; Taxonomy">Bloom&rsquo;s Revised</a>\
@@ -1010,7 +1010,7 @@ function editorExistenceCheck() {
                         checkOutcomesBox();
                         //// BLOOMS ////
                             $.each(bloomsRevisedSections, function (key, value) {
-                                
+
                                 $("#bloomsControls").append('<a class="btn btn-mini '+key+' bloomsCat">'+key+'</a>');
                                 $("."+key).click(function (e) {
                                     e.preventDefault();
@@ -1026,7 +1026,7 @@ function editorExistenceCheck() {
                                     }
                                 })
                             });
-                            // Put category buttons into two btn-groups 
+                            // Put category buttons into two btn-groups
                                 var step = 3;
                                 var buttons= $("#bloomsControls > a");
                                 buttons.each(function(i) {
@@ -1622,7 +1622,7 @@ function editorExistenceCheck() {
                         </div>\
                     </div>\
                 </div>';
-            $("#usu_tools").append(dialogContent);
+            $("#ut_tools").append(dialogContent);
         }
     ////// On Ready/Click functions  //////
         function tablesReady(mceInstance) {
@@ -1657,7 +1657,7 @@ function editorExistenceCheck() {
                             $("#course_syllabus_body_ifr").contents().find(".markHeading tr:first-child").remove();
                             $("#course_syllabus_body_ifr").contents().find(".markHeading").prepend("<thead>"+topRow+"</thead>");
                             $("#course_syllabus_body_ifr").contents().find(".markHeading thead td").each(function () {
-                                $(this).replaceWith('<th>' + $(this).text().trim() + '</th>'); 
+                                $(this).replaceWith('<th>' + $(this).text().trim() + '</th>');
                             });
                         }
                     // remove temp class and check to see if it has the table class

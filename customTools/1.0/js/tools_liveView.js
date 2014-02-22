@@ -1,4 +1,4 @@
-// This code is was created by the Center of Innovative Design and Instruction at Utah State University. 
+// This code is was created by the Center of Innovative Design and Instruction at Utah State University.
 // It is released under the AGPLv3 license. For more information about this license, go to http://www.gnu.org/licenses/agpl.html
 
 // This page contains code for the live view of custom tools
@@ -108,13 +108,13 @@ $(function(){
 		}
 	// READ MORE/LESS //
 		if($('.expander').length>0){
-			$.getScript("https://elearn.usu.edu/canvasCustomTools/js/jquery.expander.min.js", function(){
+			$.getScript("https://ctl.utexas.edu/onramps-canvas/customTools/1.0/js/jquery.expander.min.js", function(){
 				// alert("Script Loaded.");
 			});
 		}
 	// MAKE TABLES SORTABLE //
 		if($('.tablesorter').length>0){
-			$.getScript("https://elearn.usu.edu/canvasCustomTools/js/jquery.tablesorter.min.js", function(){
+			$.getScript("https://ctl.utexas.edu/onramps-canvas/customTools/1.0/js/jquery.tablesorter.min.js", function(){
 				// alert("Script Loaded.");
 			});
 			setTimeout(function(){
@@ -122,7 +122,7 @@ $(function(){
 			}, 300);
 		}
 		// var timestamp =  +(new Date());
-		// $("head").append($("<link/>", { rel: "stylesheet", href: "https://elearn.usu.edu/courses/rfast/styles.css?"+timestamp, type: "text/css" }));
+		// $("head").append($("<link/>", { rel: "stylesheet", href: "https://ctl.utexas.edu/onramps-canvas/courses/rfast/styles.css?"+timestamp, type: "text/css" }));
 
 
 	// QUICK CHECK - NEW //
@@ -133,7 +133,7 @@ $(function(){
 		$(".quickCheck").each(function (j){
 			// $(".quickCheck").append('<button class="btn btn-primary checkAnswer" style="margin-bottom:10px;">Check Answer</button>');
 				var quickCheckSection = $(this).attr("id");
-				
+
 				$("#"+quickCheckSection+" .answerWrapper").each(function (i){
 					$(this).find(".answer").prepend('<input class="quickField" type="radio" name="quickCheck'+j+'" value="false" rel="#'+quickCheckSection+' #response'+i+'"> ').wrap("<label />");
 					$(this).find(".response").attr("id", "response"+i);
@@ -209,7 +209,7 @@ $(function(){
 				if($(subNav+" li").length>0){
 					$(subNav).slideDown();
 					$(this).parent('li').removeClass('icon-arrow-right').addClass('icon-arrow-down')
-				} 
+				}
 			});
 			$( ".syllabus_nav_link" ).hover(
 			  function() {

@@ -1,7 +1,7 @@
 This is the first release of the Center for Innovative Design & Instruction's Custom Canvas Tools. 
 
 These tools are a work in progress and will continue to change as time goes on. There is an additional LTI aspect to
-these tools, the USU Template Wizard, that will be released in the not too distant future.
+these tools, the UT Template Wizard, that will be released in the not too distant future.
 
 To use these tools:
 1. Place the files on a secure server

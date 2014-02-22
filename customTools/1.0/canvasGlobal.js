@@ -1,25 +1,25 @@
-// This code is was created by the Center of Innovative Design and Instruction at Utah State University. 
+// This code is was created by the Center of Innovative Design and Instruction at Utah State University.
 // It is released under the AGPLv3 license. For more information about this license, go to http://www.gnu.org/licenses/agpl.html
 
 
 ///////////////////////////////////
-// USU's Custom Canvas Tools //
+// UT's Custom Canvas Tools //
 ///////////////////////////////////
 
 (function() {
 	console.log("Global.js loaded");
 
 	// Path to where the canvasCustomTools folder is located
-	toolsPath = "https://elearn.usu.edu/canvasCustomTools";
-	globalCSSPath = "https://elearn.usu.edu/canvasCustomTools/canvasGlobal.css";
+	toolsPath = "https://ctl.utexas.edu/onramps-canvas/customTools/1.0";
+	globalCSSPath = "https://ctl.utexas.edu/onramps-canvas/customTools/1.0/canvasGlobal.css";
 	// Comma seperated list of courses to allow custom tools access
 	var courseArray = [
-		"123456", // Example Course 1
+		"1272240", // Example Course 1
 		"654321"  // Example Course 2
 		];
 	// Comma seperated list of users to allow custom tools access
 	var userArray = [
-		"963", // John Doe
+		"1337435", // John Doe
 		"852" // Jane Doe
 		];
 
@@ -28,22 +28,22 @@
 	var matches = location.pathname.match(/\/courses\/(.*)/);
 	if (!matches) return;
 	coursenum = matches[1];
-	var killspot = coursenum.indexOf("/",0); 
+	var killspot = coursenum.indexOf("/",0);
 	if (killspot >= 0) {
 		coursenum = coursenum.slice(0, killspot);
 	}
 	// Front Page Custom banner image
-	if($("#usu-home-img").length>0){
-		$('head').prepend('<style>#usu-home-img {background: url(/courses/' + coursenum + '/file_contents/course%20files/global/css/images/homePageBanner.jpg) no-repeat center center; }</style>')
+	if($("#ut-home-img").length>0){
+		$('head').prepend('<style>#ut-home-img {background: url(/courses/' + coursenum + '/file_contents/course%20files/global/css/images/homePageBanner.jpg) no-repeat center center; }</style>')
 	}
 	var userID = $(".user_id").text();
 
 	// If the course or user are in the arrays above, load the tools
-	if($.inArray(coursenum, courseArray) != -1 || $.inArray(userID, userArray) != -1){
-		
+	// if($.inArray(coursenum, courseArray) != -1 || $.inArray(userID, userArray) != -1){
+	if(true){
 		// Identify if it is a wiki-page or an assignment page
 		if ($("#wiki_edit_view_main").length>0 || $("#edit_assignment_wrapper").length>0){
-			var timestamp =  +(new Date()); 
+			var timestamp =  +(new Date());
 			// Check to see if it is the front-page, otherwise load wiki-page tools
 			if($(".wizard_popup_link").length>0 || $("#breadcrumbs .ellipsible:last").text() == "Front Page"){
 				$.getScript(toolsPath+"/js/tools_front.js", function(){
@@ -72,8 +72,8 @@
 				if($("#wiki_page_body_ifr").length>0){
 					addStyletoIframe("#wiki_page_body_ifr");
 				}
-				if($("a[title='USU Template Wizard'").length>0){
-					$("a[title='USU Template Wizard'").hide();
+				if($("a[title='UT Template Wizard'").length>0){
+					$("a[title='UT Template Wizard'").hide();
 				}
 			}, 300);
 		});
@@ -83,20 +83,20 @@
 				if($("#course_syllabus_body_ifr").length>0){
 					addStyletoIframe("#wiki_page_body_ifr");
 				}
-				if($("a[title='USU Template Wizard'").length>0){
-					$("a[title='USU Template Wizard'").hide();
+				if($("a[title='UT Template Wizard'").length>0){
+					$("a[title='UT Template Wizard'").hide();
 				}
 			}, 400);
 		});
 		function addStyletoIframe(mceInstance){
 			var $head = $(mceInstance).contents().find("head");
-			var timestamp =  +(new Date());                
+			var timestamp =  +(new Date());
 			$head.append($("<link/>", { rel: "stylesheet", href: toolsPath+"/css/canvasMCEEditor.css?"+timestamp, type: "text/css" }));
 			$head.append($("<link/>", { rel: "stylesheet", href: globalCSSPath+"?"+timestamp, type: "text/css" }));
 			$head.append($("<link/>", { rel: "stylesheet", href: toolsPath+"/css/canvasTemplates.css?"+timestamp, type: "text/css" }));
 			$head.append($("<link/>", { rel: "stylesheet", href: "/assets/common.css?1376338847", type: "text/css" }));
 			$(mceInstance).contents().find("body").css('background-image', 'none').addClass("mce-visualSections");
-			if($(mceInstance).contents().find("#usu-custom-css").length>0 || $(mceInstance).contents().find("#custom-css").length>0){
+			if($(mceInstance).contents().find("#ut-custom-css").length>0 || $(mceInstance).contents().find("#custom-css").length>0){
 				$head.append($("<link/>", { rel: "stylesheet", href: "/courses/" + coursenum + "/file_contents/course%20files/global/css/style.css", type: "text/css" }));
 			}
 		}
@@ -109,10 +109,10 @@
 			// console.log("Script Loaded.");
 		});
 	}
-	
+
 	// add css for font-awesome if a course is using any of their icons
 	if ($(".fa").length>0){
-		var timestamp =  +(new Date()); 
+		var timestamp =  +(new Date());
 		$("head").append($("<link/>", { rel: "stylesheet", href: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css?"+timestamp }));
 		// console.log('Font Awesome added');
 	}
@@ -152,6 +152,6 @@
 			});
 		}, 1000);
 	}
-	
+
 }());
 
